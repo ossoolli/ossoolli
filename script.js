@@ -7,7 +7,7 @@
  * ================================================================ */
 
 /* ── Webhook placeholder — replace with your real URL ─────────── */
-const WEBHOOK_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+// const WEBHOOK_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // تمت الإزالة بناءً على طلب المستخدم
 
 /* ── Toast timer reference (prevents overlapping toasts) ──────── */
 let toastTimer = null;
@@ -187,6 +187,9 @@ const initContactForm = () => {
     const contactForm = document.getElementById('contactForm');
     const submitBtn   = document.getElementById('submitBtn');
     const phoneInput  = document.getElementById('phone');
+    const nameInput   = document.getElementById('name');
+    const unitsInput  = document.getElementById('unitsCount');
+    const locInput    = document.getElementById('location');
 
     if (!contactForm || !submitBtn) return;
 
@@ -197,6 +200,30 @@ const initContactForm = () => {
         });
     }
 
+    // ── Realtime UX Validation ──
+    const setError = (el, hasError) => {
+        const group = el.closest('.form-group');
+        if (!group) return;
+        if (hasError) {
+            group.classList.add('has-error');
+            el.classList.remove('success');
+        } else {
+            group.classList.remove('has-error');
+            if (el.value.trim() !== '') el.classList.add('success');
+            else el.classList.remove('success');
+        }
+    };
+
+    [nameInput, phoneInput, unitsInput, locInput].forEach(input => {
+        if(!input) return;
+        input.addEventListener('input', () => setError(input, false));
+        input.addEventListener('blur', () => {
+            if(input.required && input.value.trim() === '') setError(input, true);
+            else if (input === phoneInput && !/^07\d{8}$/.test(input.value.trim())) setError(input, true);
+            else setError(input, false);
+        });
+    });
+
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -205,25 +232,21 @@ const initContactForm = () => {
         const phoneRegex = /^07\d{8}$/;
 
         if (!phoneRegex.test(phone)) {
+            if(phoneInput) setError(phoneInput, true);
             showToast('رقم الهاتف غير صحيح، يجب أن يتكون من 10 أرقام ويبدأ بـ 07', true);
             return;
         }
 
         // ── Build payload ──
-        const nameInput       = document.getElementById('name');
-        const phoneInputVal   = phone; // already fetched above
-        const unitsInput      = document.getElementById('unitsCount');
-        const locationInput   = document.getElementById('location');
-        const notesInput      = document.getElementById('notes');
-
+        const notesInput = document.getElementById('notes');
         const name       = nameInput ? nameInput.value.trim() : '';
         const units      = unitsInput ? unitsInput.value.trim() : '';
-        const loc        = locationInput ? locationInput.value.trim() : '';
+        const loc        = locInput ? locInput.value.trim() : '';
         const notes      = notesInput ? notesInput.value.trim() : '';
 
         const payload = {
             name:       name,
-            phone:      phoneInputVal,
+            phone:      phone,
             unitsCount: units,
             location:   loc,
             notes:      notes,
@@ -231,24 +254,119 @@ const initContactForm = () => {
         };
 
         // ── Redirect to WhatsApp instantly ──
-        const text = encodeURIComponent(`مرحباً، أرغب بالبدء في إدارة عقاري:\nالاسم: ${name}\nالرقم: ${phone}\nعدد الوحدات: ${units}\nالموقع: ${loc}\nملاحظات: ${notes}`);
+        const text = encodeURIComponent(`مرحباً، أرغب بالبدء في إدارة عقاري:\nالالاسم: ${name}\nالرقم: ${phone}\nعدد الوحدات: ${units}\nالموقع: ${loc}\nملاحظات: ${notes}`);
         window.open(`https://wa.me/962780719787?text=${text}`, '_blank');
         showToast('تم تحويلك إلى واتساب بنجاح!');
         contactForm.reset();
+        [nameInput, phoneInput, unitsInput, locInput].forEach(input => {
+            if(input) { input.classList.remove('success'); input.closest('.form-group')?.classList.remove('has-error'); }
+        });
+    });
+};
 
-        // ── Send to Google Sheets silently behind the scenes ──
-        if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
-            try {
-                fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                    mode: 'no-cors'
-                });
-            } catch (err) {
-                console.error('Webhook failed silently:', err);
-            }
+// ─────────────────────────────────────────────────────────────────
+// 8. SCROLL PROGRESS BAR
+// ─────────────────────────────────────────────────────────────────
+const initScrollProgress = () => {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+                bar.style.transform = `scaleX(${progress})`;
+                ticking = false;
+            });
+            ticking = true;
         }
+    }, { passive: true });
+};
+
+// ─────────────────────────────────────────────────────────────────
+// 9. ANIMATED COUNTERS
+// ─────────────────────────────────────────────────────────────────
+const initCounters = () => {
+    const counters = document.querySelectorAll('.stat-number');
+    if (!counters.length) return;
+    
+    // Fallback if no IntersectionObserver
+    if(typeof IntersectionObserver === 'undefined') {
+        counters.forEach(el => {
+            el.textContent = el.getAttribute('data-target') + (el.getAttribute('data-suffix') || '');
+        });
+        return;
+    }
+
+    const animateCounter = (el) => {
+        const target = +el.getAttribute('data-target');
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 1000;
+        let startTimestamp = null;
+        
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            
+            // easeOutQuart
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
+            const currentObj = Math.floor(easeProgress * target);
+            
+            el.textContent = currentObj + suffix;
+            
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                el.textContent = target + suffix;
+            }
+        };
+        window.requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(c => observer.observe(c));
+};
+
+// ─────────────────────────────────────────────────────────────────
+// 10. MAGNETIC BUTTONS (Desktop Only)
+// ─────────────────────────────────────────────────────────────────
+const initMagneticButtons = () => {
+    if (window.innerWidth < 992) return; // Disable on mobile
+    
+    // Select buttons but exclude mobile specific ones like sticky CTA
+    const buttons = document.querySelectorAll('.btn-primary, .btn-outline');
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // max translate ~6px
+            const moveX = (x / rect.width) * 12; 
+            const moveY = (y / rect.height) * 12;
+            
+            window.requestAnimationFrame(() => {
+                btn.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.03)`;
+            });
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            window.requestAnimationFrame(() => {
+                btn.style.transform = '';
+            });
+        });
     });
 };
 
@@ -263,5 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initRevealAnimations();
     initFAQ();
     initContactForm();
+    initScrollProgress();
+    initCounters();
+    initMagneticButtons();
 });
 

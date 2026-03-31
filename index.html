@@ -45,6 +45,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress"></div>
+
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
@@ -127,6 +130,26 @@
             </div>
         </div>
     </header>
+
+    <!-- STATS COUNTERS -->
+    <section id="impact-stats" class="section pb-0 reveal">
+        <div class="container">
+            <div class="grid-3 stats-grid card p-4">
+                <div class="stat-card text-center">
+                    <div class="stat-number number-font large text-primary fw-bold mb-2" data-target="250" data-suffix="+">0</div>
+                    <p class="stat-label text-sm fw-bold">عقار تحت الإدارة</p>
+                </div>
+                <div class="stat-card text-center border-right-md">
+                    <div class="stat-number number-font large text-primary fw-bold mb-2" data-target="100" data-suffix="%">0</div>
+                    <p class="stat-label text-sm fw-bold">نسبة التحصيل الناجح</p>
+                </div>
+                <div class="stat-card text-center border-right-md">
+                    <div class="stat-number number-font large text-primary fw-bold mb-2" data-target="24" data-suffix=" ساعة">0</div>
+                    <p class="stat-label text-sm fw-bold">سرعة الإجراء القانوني</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- PAIN AGITATION -->
     <section id="pain" class="section bg-alt reveal pb-0">
@@ -623,11 +646,11 @@
             </div>
             <div class="card p-4 form-card">
                 <form id="contactForm">
-                    <div class="form-group mb-3"><label for="name">الاسم</label><input type="text" id="name" required class="form-control" placeholder="أدخل اسمك الكامل"></div>
-                    <div class="form-group mb-3"><label for="phone">رقم الهاتف</label><input type="tel" id="phone" required class="form-control number-font text-right" placeholder="07XXXXXXXX" dir="ltr"></div>
+                    <div class="form-group mb-3"><label for="name">الاسم</label><input type="text" id="name" required class="form-control" placeholder="أدخل اسمك الكامل"><div class="form-error-msg">يرجى إدخال الاسم الكامل</div></div>
+                    <div class="form-group mb-3"><label for="phone">رقم الهاتف</label><input type="tel" id="phone" required class="form-control number-font text-right" placeholder="07XXXXXXXX" dir="ltr"><div class="form-error-msg">يجب أن يتكون من 10 أرقام ويبدأ بـ 07</div></div>
                     
-                    <div class="form-group mb-3"><label for="unitsCount">عدد الوحدات العقارية</label><input type="number" id="unitsCount" required class="form-control number-font text-right" placeholder="أدخل عدد الوحدات (مثال: 5)" min="1" dir="ltr"></div>
-                    <div class="form-group mb-3"><label for="location">الموقع</label><input type="text" id="location" required class="form-control" placeholder="اسم المنطقة أو الحي"></div>
+                    <div class="form-group mb-3"><label for="unitsCount">عدد الوحدات العقارية</label><input type="number" id="unitsCount" required class="form-control number-font text-right" placeholder="أدخل عدد الوحدات (مثال: 5)" min="1" dir="ltr"><div class="form-error-msg">يرجى إدخال عدد صحيح</div></div>
+                    <div class="form-group mb-3"><label for="location">الموقع</label><input type="text" id="location" required class="form-control" placeholder="اسم المنطقة أو الحي"><div class="form-error-msg">يرجى تحديد الموقع</div></div>
                     
                     <div class="form-group mb-4">
                         <label for="notes">ملاحظات (اختياري)</label>
