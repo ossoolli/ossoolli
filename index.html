@@ -108,7 +108,7 @@
                     <div class="stat-item text-center"><span class="stat-num number-font text-xl">✓</span><span class="stat-text fw-bold">عمولة فقط عند التحصيل</span></div>
                 </div>
             </div>
-            <div class="hero-visual reveal">
+            <div class="hero-visual reveal float-anim">
                 <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
                     <defs>
                         <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -190,7 +190,7 @@
                     <p>نتولى صياغة العقود القانونية المحكمة وتوقيع المستأجرين، ثم نبدأ بالتحصيل الشهري.</p>
                 </div>
                 <div class="process-arrow">&#8592;</div>
-                <div class="process-card card featured-card">
+                <div class="process-card card featured-card float-anim">
                     <div class="process-icon gold">3</div>
                     <h3>ندير ونحمي</h3>
                     <p>نتولى التحصيل الشهري والمتابعة. وفي حال تأخر الدفع، نتولى رفع القضايا و الإخلاء مجاناً.</p>
@@ -370,7 +370,7 @@
                 <div class="timeline-step card"><div class="step-day number-font">5<span class="text-xs ms-1">أيام</span></div><h4>إشعار رسمي</h4></div>
                 <div class="timeline-step card"><div class="step-day number-font">15<span class="text-xs ms-1">يوم</span></div><h4>إنذار عدلي</h4></div>
                 <div class="timeline-step card"><div class="step-day number-font">30<span class="text-xs ms-1">يوم</span></div><h4>رفع دعوى</h4></div>
-                <div class="timeline-step card featured-card"><div class="step-day number-font gold">✓</div><h4>استعادة العقار</h4></div>
+                <div class="timeline-step card featured-card float-anim"><div class="step-day number-font gold">✓</div><h4>استعادة العقار</h4></div>
             </div>
             <div class="alert-box danger mt-4 text-center max-w-md center-block">
                 لا تنتظر حتى يتراكم التأخر — كل يوم له تكلفة
@@ -596,17 +596,17 @@
             </div>
             <div class="grid-3">
                 <div class="trust-card text-center p-4 card">
-                    <img src="favicon.png" class="trust-chain-icon" alt="حماية قانونية">
+                    <img src="favicon.png" class="trust-chain-icon" alt="حماية قانونية" loading="lazy">
                     <h3 class="mt-3">حماية قانونية</h3>
                     <p class="text-sm mt-2">بيانات المالك والمستأجر سرية تماماً ولا تستخدم إلا لتقديم الخدمة.</p>
                 </div>
                 <div class="trust-card text-center p-4 card">
-                    <img src="favicon.png" class="trust-chain-icon" alt="عقد قانوني محكم">
+                    <img src="favicon.png" class="trust-chain-icon" alt="عقد قانوني محكم" loading="lazy">
                     <h3 class="mt-3">عقد قانوني محكم</h3>
                     <p class="text-sm mt-2">اتفاقياتنا مصاغة وفق القانون الأردني لضمان وضوح الحقوق والواجبات.</p>
                 </div>
                 <div class="trust-card text-center p-4 card">
-                    <img src="favicon.png" class="trust-chain-icon" alt="تحصيل مضمون">
+                    <img src="favicon.png" class="trust-chain-icon" alt="تحصيل مضمون" loading="lazy">
                     <h3 class="mt-3">تحصيل مضمون</h3>
                     <p class="text-sm mt-2">لا رسوم خفية، نربح فقط عندما ننجح في تحصيل إيجارك.</p>
                 </div>
@@ -648,7 +648,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo footer-logo">
-                        <img src="logo-footer.png" alt="أصولي | ossoolli" class="logo-img-footer">
+                        <img src="logo-footer.png" alt="أصولي | ossoolli" class="logo-img-footer" loading="lazy">
                     </a>
                     <p class="footer-tagline">إيجارك محمي قانونياً</p>
                     <p class="text-dim mt-2">نغير مفهوم الاستثمار العقاري من خلال توفير إدارة موثوقة لحماية حقوق المالك وتحصيل إيراداته.</p>
@@ -687,6 +687,9 @@
     <div class="mobile-sticky-cta">
         <a href="#contact" class="btn btn-primary pulse">احمِ عقارك الآن</a>
     </div>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
 
     <!-- TOAST -->
     <div id="toast" class="toast"></div>

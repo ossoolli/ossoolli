@@ -83,6 +83,26 @@ const initSmoothScroll = () => {
 };
 
 // ─────────────────────────────────────────────────────────────────
+// 3.5. BACK TO TOP BUTTON
+// ─────────────────────────────────────────────────────────────────
+const initBackToTop = () => {
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (!backToTopBtn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+};
+
+// ─────────────────────────────────────────────────────────────────
 // 4. SCROLL REVEAL (IntersectionObserver)
 // ─────────────────────────────────────────────────────────────────
 const initRevealAnimations = () => {
@@ -166,14 +186,21 @@ const showToast = (msg, isError = false) => {
 const initContactForm = () => {
     const contactForm = document.getElementById('contactForm');
     const submitBtn   = document.getElementById('submitBtn');
+    const phoneInput  = document.getElementById('phone');
 
     if (!contactForm || !submitBtn) return;
+
+    // ── Prevent non-numeric input on phone field ──
+    if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+    }
 
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // ── Phone validation ──
-        const phoneInput = document.getElementById('phone');
         const phone = phoneInput ? phoneInput.value.trim() : '';
         const phoneRegex = /^07\d{8}$/;
 
@@ -203,38 +230,24 @@ const initContactForm = () => {
             timestamp:  new Date().toISOString()
         };
 
-        // ── Loading state ──
-        const originalHTML = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="btn-spinner"></span> جاري الإرسال...';
+        // ── Redirect to WhatsApp instantly ──
+        const text = encodeURIComponent(`مرحباً، أرغب بالبدء في إدارة عقاري:\nالاسم: ${name}\nالرقم: ${phone}\nعدد الوحدات: ${units}\nالموقع: ${loc}\nملاحظات: ${notes}`);
+        window.open(`https://wa.me/962780719787?text=${text}`, '_blank');
+        showToast('تم تحويلك إلى واتساب بنجاح!');
+        contactForm.reset();
 
-        // ── Guard: placeholder webhook fallback ──
-        if (!WEBHOOK_URL || WEBHOOK_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalHTML;
-
-            const text = encodeURIComponent(`مرحباً، أرغب بالبدء في إدارة عقاري:\nالاسم: ${name}\nالرقم: ${phoneInputVal}\nعدد الوحدات: ${units}\nالموقع: ${loc}\nملاحظات: ${notes}`);
-            window.open(`https://wa.me/962780719787?text=${text}`, '_blank');
-            showToast('تم تحويلك إلى واتساب لإتمام الطلب');
-            return;
-        }
-
-        // ── Send request ──
-        try {
-            await fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-                mode: 'no-cors' // Google Apps Script requires this
-            });
-
-            showToast('تم الإرسال بنجاح — سنتواصل معك قريباً');
-            contactForm.reset();
-        } catch (err) {
-            showToast('حدث خطأ، يرجى المحاولة مجدداً أو التواصل عبر واتساب', true);
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalHTML;
+        // ── Send to Google Sheets silently behind the scenes ──
+        if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+            try {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    mode: 'no-cors'
+                });
+            } catch (err) {
+                console.error('Webhook failed silently:', err);
+            }
         }
     });
 };
@@ -246,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initMobileMenu();
     initSmoothScroll();
+    initBackToTop();
     initRevealAnimations();
     initFAQ();
     initContactForm();
