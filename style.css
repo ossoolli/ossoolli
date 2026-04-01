@@ -923,3 +923,30 @@ ul.legal-sub-list { list-style: disc; }
     color: #fff;
     margin-top: 12px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   MICRO-INTERACTIONS & STATS
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── SCROLL PROGRESS BAR ─────────────────────────────────── */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-primary);
+    z-index: 9999;
+    transform-origin: right;
+    transform: scaleX(0);
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* ── STATS SECTION ───────────────────────────────────────── */
+.stats-grid { gap: 16px; align-items: stretch; }
+.stat-card { padding: 32px 16px; position: relative; transition: var(--transition); border-radius: var(--radius-md); }
+.stat-card:hover { background: rgba(18,59,93,0.02); transform: translateY(-3px); }
+@media (min-width: 992px) {
+    .border-right-md { border-right: 1px solid var(--color-border); }
+}

@@ -348,6 +348,11 @@ const initMagneticButtons = () => {
     const buttons = document.querySelectorAll('.btn-primary, .btn-outline');
     
     buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            // Remove transform transition during active tracking to prevent stuttering
+            btn.style.transition = 'background 0.15s, color 0.15s, box-shadow 0.15s, transform 0s';
+        });
+
         btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
@@ -363,6 +368,8 @@ const initMagneticButtons = () => {
         });
         
         btn.addEventListener('mouseleave', () => {
+            // Restore default transition
+            btn.style.transition = '';
             window.requestAnimationFrame(() => {
                 btn.style.transform = '';
             });
