@@ -954,6 +954,7 @@ ul.legal-sub-list { list-style: disc; }
 /* ── CRO UTILITIES ───────────────────────────────────────── */
 .text-underline { text-decoration: underline; text-underline-offset: 4px; }
 .hero-trust { color: var(--color-accent); opacity: 0.9; }
+.risk-reversal-text { color: var(--color-text-light); opacity: 0.9; }
 
 @media (max-width: 768px) {
     .w-100-mobile {
