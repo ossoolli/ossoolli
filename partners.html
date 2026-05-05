@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركاؤنا الاستراتيجيون | أصولي — شراكات لخدمتك</title>
+    <meta name="description" content="أصولي تتعاون مع أبرز مكاتب المحاماة وشركات التحويل المالي ووسطاء العقارات في الأردن لتقديم خدمة متكاملة وموثوقة لملاك العقارات.">
+
+    <meta property="og:title" content="شركاؤنا الاستراتيجيون | أصولي">
+    <meta property="og:description" content="شراكات مع مكاتب محاماة ووسطاء عقاريين وشركات مالية معتمدة لخدمتك بشكل أفضل.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ossoolli.online/partners.html">
+    <meta property="og:image" content="https://ossoolli.online/logo-nav.png">
+    <meta property="og:locale" content="ar_JO">
+
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6e 100%);
+            padding: 120px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: radial-gradient(at 80% 30%, rgba(198,161,91,0.18) 0, transparent 55%),
+                              radial-gradient(at 20% 70%, rgba(255,255,255,0.04) 0, transparent 45%);
+            pointer-events: none;
+        }
+        .page-hero .badge { display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+        .page-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .page-hero h1 span { color: var(--color-accent); }
+        .page-hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.82);
+            max-width: 580px;
+            margin: 0 auto 32px;
+            line-height: 1.75;
+        }
+
+        /* ── PARTNER JOIN CARD ── */
+        .join-card {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6e 100%);
+            border-radius: var(--radius-lg);
+            padding: 56px 48px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .join-card::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(at 20% 50%, rgba(198,161,91,0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .join-card h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 12px; }
+        .join-card p { font-size: 1rem; color: rgba(255,255,255,0.82); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .join-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+        .join-benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .join-benefit-icon {
+            width: 52px; height: 52px;
+            background: rgba(198,161,91,0.2);
+            border: 1px solid rgba(198,161,91,0.4);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--color-accent);
+        }
+        .join-benefit span {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        /* ── PARTNER CARD enhanced ── */
+        .partner-card-v2 {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            transition: var(--transition);
+            position: relative;
+        }
+        .partner-card-v2:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: rgba(198,161,91,0.35);
+        }
+        .partner-card-v2.featured {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 1px rgba(198,161,91,0.2);
+        }
+        .partner-card-v2 .partner-icon-v2 {
+            width: 64px; height: 64px;
+            background: rgba(198,161,91,0.08);
+            border: 1.5px solid rgba(198,161,91,0.2);
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+        .partner-card-v2 h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+        .partner-card-v2 p {
+            font-size: 0.93rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .partner-logos-v2 {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .partner-logo-box {
+            height: 42px;
+            padding: 0 16px;
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 100px 16px 60px; }
+            .join-card { padding: 36px 20px; }
+            .join-card h2 { font-size: 1.4rem; }
+            .join-benefits { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo-nav.png" alt="أصولي | إدارة عقارية وحماية قانونية" class="logo-img" loading="lazy">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html#what-we-offer" class="nav-link">خدماتنا</a>
+                <a href="lawyers.html" class="nav-link">شبكة المحامين</a>
+                <a href="partners.html" class="nav-link active">شركاؤنا</a>
+                <a href="index.html#pricing" class="nav-link">التسعير</a>
+                <a href="index.html#faq" class="nav-link">الأسئلة</a>
+                <a href="legal.html" class="nav-link">الوثائق القانونية</a>
+                <div class="login-dropdown-wrapper">
+                    <button class="login-btn" id="login-btn-nav" aria-expanded="false">
+                        دخول المنصة <i data-lucide="user-circle" style="width: 18px; height: 18px;"></i>
+                    </button>
+                    <div class="login-dropdown" id="login-dropdown-menu">
+                        <a href="login.html#owner" class="login-dropdown-item">
+                            <div class="login-icon-box"><i data-lucide="building-2"></i></div>
+                            <div>
+                                <span class="login-drop-title">بوابة المُلّاك</span>
+                                <span class="login-drop-desc">إدارة عقاراتك وتقاريرك</span>
+                            </div>
+                        </a>
+                        <a href="login.html#tenant" class="login-dropdown-item">
+                            <div class="login-icon-box"><i data-lucide="key-round"></i></div>
+                            <div>
+                                <span class="login-drop-title">بوابة المستأجرين</span>
+                                <span class="login-drop-desc">دفع الإيجار وإشعاراتك</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="btn btn-primary nav-cta">ابدأ حماية عقارك</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="badge">
+            <i data-lucide="handshake" style="width:14px;height:14px"></i> شركاؤنا الاستراتيجيون
+        </div>
+        <h1>نعمل مع <span>الأفضل</span> لنقدم لك الأفضل</h1>
+        <p>شبكة شراكات متكاملة من أبرز مكاتب المحاماة وشركات التحويل المالي ووسطاء العقارات في الأردن — لأن قوة الشبكة تعني قوة الحماية لعقارك.</p>
+        <a href="index.html#contact" class="btn btn-primary btn-lg">تواصل معنا</a>
+    </div>
+
+    <main id="main-content">
+
+        <!-- PARTNERS GRID -->
+        <section id="partners" class="section reveal">
+            <div class="container">
+                <div class="section-header center mb-4">
+                    <h2 class="section-title">شراكاتنا الاستراتيجية</h2>
+                    <p class="section-subtitle">كل شريك اخترناه بعناية لخدمتك بأعلى معايير الجودة</p>
+                </div>
+
+                <div class="grid-3" style="gap: 24px;">
+                    <div class="partner-card-v2 reveal">
+                        <div class="partner-icon-v2">
+                            <i data-lucide="scale" style="width:28px;height:28px"></i>
+                        </div>
+                        <h3>الشراكات القانونية</h3>
+                        <p>مكاتب المحاماة المعتمدة في جميع أنحاء المملكة، المتخصصة في قانون الإيجار والملكية العقارية.</p>
+                        <div class="partner-logos-v2">
+                            <div class="partner-logo-box">نقابة المحامين</div>
+                            <div class="partner-logo-box">مكاتب معتمدة</div>
+                        </div>
+                    </div>
+
+                    <div class="partner-card-v2 featured reveal">
+                        <div style="position:absolute;top:-1px;right:20px;background:var(--color-accent);color:var(--color-primary);font-size:0.75rem;font-weight:800;padding:4px 12px;border-radius:0 0 8px 8px;">شريك رئيسي</div>
+                        <div class="partner-icon-v2">
+                            <i data-lucide="landmark" style="width:28px;height:28px"></i>
+                        </div>
+                        <h3>شركاء التحويل المالي</h3>
+                        <p>بنوك وحلول دفع إلكتروني معتمدة تضمن وصول إيجارك لحسابك بأمان وسرعة خلال 7 أيام عمل.</p>
+                        <div class="partner-logos-v2">
+                            <div class="partner-logo-box">بنوك محلية</div>
+                            <div class="partner-logo-box">دفع إلكتروني</div>
+                        </div>
+                    </div>
+
+                    <div class="partner-card-v2 reveal">
+                        <div class="partner-icon-v2">
+                            <i data-lucide="map-pin" style="width:28px;height:28px"></i>
+                        </div>
+                        <h3>وسطاء العقارات</h3>
+                        <p>شبكة من أمهر الوسطاء العقاريين المرخّصين للوصول إلى أفضل المستأجرين وأكثرهم التزاماً.</p>
+                        <div class="partner-logos-v2">
+                            <div class="partner-logo-box">وسطاء مرخّصون</div>
+                            <div class="partner-logo-box">شبكة واسعة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS FOR PARTNERS -->
+        <section class="section bg-alt reveal">
+            <div class="container">
+                <div class="section-header center mb-4">
+                    <div class="badge"><i data-lucide="trending-up" style="width:14px;height:14px"></i> لماذا تنضم لشبكتنا</div>
+                    <h2 class="section-title">مزايا الشراكة مع أصولي</h2>
+                </div>
+                <div class="grid-3" style="gap: 24px;">
+                    <div class="card p-4 text-center reveal">
+                        <div style="width:56px;height:56px;background:rgba(198,161,91,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;"><i data-lucide="users" style="color:var(--color-accent);width:24px;height:24px;"></i></div>
+                        <h3>قاعدة عملاء جاهزة</h3>
+                        <p class="text-sm text-dim mt-2">الوصول لشبكة ملاك عقارات في جميع المحافظات دون جهد تسويقي من طرفك.</p>
+                    </div>
+                    <div class="card p-4 text-center reveal">
+                        <div style="width:56px;height:56px;background:rgba(198,161,91,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;"><i data-lucide="wallet" style="color:var(--color-accent);width:24px;height:24px;"></i></div>
+                        <h3>دخل مستمر ومضمون</h3>
+                        <p class="text-sm text-dim mt-2">عمولات ثابتة ومنتظمة مقابل كل ملف تتولاه ضمن شبكة أصولي.</p>
+                    </div>
+                    <div class="card p-4 text-center reveal">
+                        <div style="width:56px;height:56px;background:rgba(198,161,91,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;"><i data-lucide="star" style="color:var(--color-accent);width:24px;height:24px;"></i></div>
+                        <h3>سمعة وثقة معززة</h3>
+                        <p class="text-sm text-dim mt-2">الانتساب لشبكة أصولي المعتمدة يزيد مصداقيتك ويؤهلك لملفات أكبر.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOIN CTA -->
+        <section class="section reveal">
+            <div class="container max-w-md center-block">
+                <div class="join-card">
+                    <i data-lucide="handshake" style="width:52px;height:52px;color:var(--color-accent);margin-bottom:20px;"></i>
+                    <h2>هل أنت مكتب محاماة أو وسيط عقاري؟</h2>
+                    <p>انضم لشبكتنا المتنامية واحصل على عملاء جدد ودخل إضافي مستمر بدون تكاليف تسويقية.</p>
+                    <div class="join-benefits">
+                        <div class="join-benefit">
+                            <div class="join-benefit-icon"><i data-lucide="check-circle" style="width:22px;height:22px"></i></div>
+                            <span>تأهيل مجاني</span>
+                        </div>
+                        <div class="join-benefit">
+                            <div class="join-benefit-icon"><i data-lucide="bar-chart-2" style="width:22px;height:22px"></i></div>
+                            <span>ملفات منتظمة</span>
+                        </div>
+                        <div class="join-benefit">
+                            <div class="join-benefit-icon"><i data-lucide="shield" style="width:22px;height:22px"></i></div>
+                            <span>دعم كامل</span>
+                        </div>
+                    </div>
+                    <a href="index.html#contact" class="btn btn-primary btn-lg">تقدّم للانضمام الآن</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="logo-footer.png" alt="أصولي | ossoolli" class="logo-img-footer" loading="lazy">
+                    </a>
+                    <p class="footer-tagline">إيجارك محمي قانونياً</p>
+                    <p class="text-dim mt-2">نغير مفهوم الاستثمار العقاري من خلال توفير إدارة موثوقة لحماية حقوق المالك وتحصيل إيراداته.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html#what-we-offer">خدماتنا</a></li>
+                        <li><a href="index.html#pricing">التسعير</a></li>
+                        <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+                        <li><a href="index.html#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4 class="footer-title">الوثائق القانونية</h4>
+                    <ul>
+                        <li><a href="legal.html#terms">الشروط والأحكام</a></li>
+                        <li><a href="legal.html#pricing">نموذج العمولة</a></li>
+                        <li><a href="legal.html#privacy">سياسة الخصوصية</a></li>
+                        <li><a href="legal.html#risks">مصفوفة المخاطر</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">تواصل معنا</h4>
+                    <ul>
+                        <li><a href="mailto:info@ossoolli.online" dir="ltr">info@ossoolli.online</a></li>
+                        <li><a href="https://wa.me/962780719787" class="number-font" dir="ltr">+962 780 719 787</a></li>
+                        <li>عمان، الأردن</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom center"><p>&copy; 2026 أصولي (ossoolli) — جميع الحقوق محفوظة.</p></div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+        <a href="https://wa.me/962780719787" class="btn btn-whatsapp w-100">💬 تحدث معنا على واتساب</a>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">↑</button>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

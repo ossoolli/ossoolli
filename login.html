@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أصولي | تسجيل الدخول</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            background-color: var(--color-bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        .login-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: border-top 0.3s ease;
+            border-top: 4px solid var(--color-gold); /* Default Owner */
+        }
+        
+        .login-card[data-active="tenant"] {
+            border-top: 4px solid var(--color-success);
+        }
+        
+        .login-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-logo img {
+            height: 45px;
+            object-fit: contain;
+        }
+        
+        .login-tabs {
+            display: flex;
+            background: var(--color-bg-alt);
+            border-radius: 12px;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+        
+        .login-tab {
+            flex: 1;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .login-tab.active {
+            background: var(--color-surface);
+            color: var(--color-primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Accents */
+        .login-container[data-state="owner"] .login-tab[data-tab="owner"].active {
+            color: var(--color-gold);
+        }
+        .login-container[data-state="owner"] .form-btn {
+            background: var(--color-primary);
+        }
+        .login-container[data-state="owner"] .form-btn:hover {
+            background: var(--color-gold);
+            color: var(--color-primary);
+        }
+        
+        .login-container[data-state="tenant"] .login-tab[data-tab="tenant"].active {
+            color: var(--color-success);
+        }
+        .login-container[data-state="tenant"] .form-btn {
+            background: var(--color-success);
+        }
+        .login-container[data-state="tenant"] .form-btn:hover {
+            background: #20503B;
+        }
+        
+        /* Forms */
+        .login-form-wrapper {
+            position: relative;
+        }
+        .login-form {
+            display: none;
+            text-align: right;
+            animation: fadeIn 0.3s ease forwards;
+        }
+        .login-form.active {
+            display: block;
+        }
+        
+        .form-title {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .form-desc {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            font-size: 0.9rem;
+        }
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-wrapper i {
+            position: absolute;
+            right: 14px;
+            color: var(--color-text-muted);
+            width: 18px;
+            height: 18px;
+        }
+        .input-wrapper input {
+            width: 100%;
+            padding: 14px 14px 14px 40px;
+            padding-right: 40px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: #fff;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+        }
+        .login-container[data-state="tenant"] .input-wrapper input:focus {
+            border-color: var(--color-success);
+            box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+        }
+        
+        .form-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius-md);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        
+        .back-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 24px;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            color: var(--color-primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" aria-label="Toggle dark mode" style="position:fixed;top:10px;right:10px;z-index:1000;background:none;border:none;font-size:1.5rem;cursor:pointer;">🌙</button>
+
+    <div class="login-container" id="login-container" data-state="owner">
+        <div class="login-card" id="login-card" data-active="owner">
+            
+            <a href="index.html" class="login-logo">
+                <img src="logo-nav.png" alt="أصولي">
+            </a>
+            
+            <div class="login-tabs">
+                <div class="login-tab active" data-tab="owner">
+                    <i data-lucide="building-2" style="width: 18px; height: 18px;"></i> المُلّاك
+                </div>
+                <div class="login-tab" data-tab="tenant">
+                    <i data-lucide="key-round" style="width: 18px; height: 18px;"></i> المستأجرين
+                </div>
+            </div>
+            
+            <div class="login-form-wrapper">
+                <!-- Owner Form -->
+                <form id="owner-form" class="login-form active">
+                    <h2 class="form-title">مرحباً بك في بوابة المُلّاك</h2>
+                    <p class="form-desc">تابع عقاراتك وعوائدك بكل سهولة وأمان</p>
+                    
+                    <div class="input-group">
+                        <label for="owner-identifier">رقم الهاتف أو البريد الإلكتروني</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="owner-identifier" placeholder="أدخل رقمك أو بريدك" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="owner-pass">كلمة المرور</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="owner-pass" placeholder="أدخل كلمة المرور" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="form-btn">
+                        تسجيل الدخول <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+                    </button>
+                    
+                    <div class="text-center mt-3" style="font-size: 0.85rem;">
+                        <a href="#" style="color: var(--color-text-secondary);">نسيت كلمة المرور؟</a>
+                    </div>
+                </form>
+                
+                <!-- Tenant Form -->
+                <form id="tenant-form" class="login-form">
+                    <h2 class="form-title" style="color: var(--color-success);">بوابة المستأجرين</h2>
+                    <p class="form-desc">سدد الدفعات وتابع إشعاراتك</p>
+                    
+                    <div class="input-group">
+                        <label for="tenant-phone">رقم الهاتف المسجل</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="phone"></i>
+                            <input type="tel" id="tenant-phone" class="number-font" dir="ltr" placeholder="07XXXXXXXX" required>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="form-btn" id="tenant-otp-btn">
+                        إرسال رمز التحقق (OTP) <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
+                    </button>
+                    
+                    <p class="text-center mt-3 text-xs" style="color: var(--color-text-muted);">
+                        سيتم إرسال رمز التحقق عبر WhatsApp إلى رقمك المسجل في العقد.
+                    </p>
+                </form>
+            </div>
+            
+            <a href="index.html" class="back-link">
+                <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i> العودة للرئيسية
+            </a>
+            
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.login-tab');
+            const container = document.getElementById('login-container');
+            const card = document.getElementById('login-card');
+            const ownerForm = document.getElementById('owner-form');
+            const tenantForm = document.getElementById('tenant-form');
+            
+            const switchTab = (tabName) => {
+                // Update tabs visually
+                tabs.forEach(t => t.classList.remove('active'));
+                document.querySelector(`.login-tab[data-tab="${tabName}"]`).classList.add('active');
+                
+                // Update styling accents
+                container.setAttribute('data-state', tabName);
+                card.setAttribute('data-active', tabName);
+                
+                // Show Correct Form
+                if (tabName === 'owner') {
+                    ownerForm.classList.add('active');
+                    tenantForm.classList.remove('active');
+                    history.replaceState(null, null, '#owner');
+                } else {
+                    tenantForm.classList.add('active');
+                    ownerForm.classList.remove('active');
+                    history.replaceState(null, null, '#tenant');
+                }
+            };
+            
+            // Check hash on load
+            if (window.location.hash === '#tenant') {
+                switchTab('tenant');
+            } else {
+                switchTab('owner');
+            }
+            
+            // Handle tab clicks
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-tab');
+                    switchTab(target);
+                });
+            });
+            
+            // Simple form prevention
+            ownerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('سيعمل هذا الزر عند ربط المنصة بقاعدة البيانات');
+            });
+            
+            document.getElementById('tenant-otp-btn').addEventListener('click', () => {
+                const phone = document.getElementById('tenant-phone').value;
+                if (!phone) {
+                    alert('يرجى إدخال رقم الهاتف أولاً');
+                    return;
+                }
+                alert('تم إرسال الرمز إلى ' + phone);
+            });
+        });
+    </script>
+</body>
+</html>

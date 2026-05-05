@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أصولي | الشروط والسياسات القانونية</title>
+  <meta name="description" content="البنية القانونية لمنصة أصولي | نظام إدارة المخاطر العقارية والحماية القانونية في الأردن.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Same main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* ── PAGE-SPECIFIC OVERRIDES ── */
+    body { padding-top: 80px; }
+
+    /* ── LEGAL HERO ── */
+    .legal-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px 96px;
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(at 20% 50%, rgba(198,161,91,0.15) 0, transparent 50%),
+                        radial-gradient(at 80% 20%, rgba(255,255,255,0.05) 0, transparent 40%);
+      pointer-events: none;
+    }
+    .legal-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .legal-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 640px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .legal-hero .badge-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-accent-glow);
+      border: 1px solid rgba(198,161,91,0.4);
+      color: var(--color-accent-light);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 20px;
+      border-radius: 50px;
+    }
+
+    /* ── TOC BAR ── */
+    .toc-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 20px 24px;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 80px;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+    }
+    .toc-bar a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 50px;
+      background: var(--color-bg-alt);
+      color: var(--color-primary);
+      border: 1.5px solid var(--color-border);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .toc-bar a:hover,
+    .toc-bar a.active {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ── CONTENT WRAPPER ── */
+    .legal-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ── LEGAL SECTION CARD ── */
+    .legal-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      padding: 52px;
+      margin-bottom: 48px;
+      scroll-margin-top: 170px;
+      transition: var(--transition);
+    }
+    .legal-card:hover { box-shadow: var(--shadow-lg); }
+
+    .legal-card-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 28px;
+      margin-bottom: 36px;
+      border-bottom: 2px solid var(--color-bg-alt);
+    }
+    .legal-card-icon {
+      width: 60px; height: 60px;
+      flex-shrink: 0;
+      background: var(--color-accent-glow);
+      border: 2px solid rgba(198,161,91,0.25);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+    }
+    .legal-card-header h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1.3;
+    }
+    .legal-card-header h2 small {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-top: 5px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── CLAUSE ── */
+    .clause {
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--color-bg-alt);
+    }
+    .clause:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .clause h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .clause-num {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .clause p {
+      color: var(--color-text);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .clause ul {
+      list-style: none;
+      padding-right: 8px;
+    }
+    .clause ul li {
+      font-size: 0.97rem;
+      padding: 7px 0;
+      color: var(--color-text);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .clause ul li::before {
+      content: "✦";
+      color: var(--color-accent);
+      font-size: 0.7rem;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    /* ── HIGHLIGHT BOXES ── */
+    .info-box {
+      background: var(--color-bg-alt);
+      border-right: 4px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin: 18px 0;
+      line-height: 1.65;
+    }
+    .info-box.accent {
+      background: var(--color-accent-glow);
+      border-color: var(--color-accent);
+      color: #7a5c1e;
+    }
+    .info-box.danger {
+      background: rgba(196,73,73,0.07);
+      border-color: var(--color-danger);
+      color: var(--color-danger);
+    }
+
+    /* ── GRADUATION TABLE ── */
+    .grad-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 24px 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+    }
+    .grad-table thead tr th {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+      color: #fff;
+      padding: 18px 22px;
+      text-align: right;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .grad-table tbody tr:last-child td { border-bottom: none; }
+    .grad-table tbody tr:nth-child(even) { background: var(--color-bg); }
+    .grad-table td {
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .grad-table td .highlight { color: var(--color-accent); font-weight: 800; }
+    .grad-table td .highlight-primary { color: var(--color-primary); font-weight: 800; }
+    .grad-table td .highlight-success { color: var(--color-success); font-weight: 800; }
+
+    /* ── LEGAL FOOTER ── */
+    .legal-footer {
+      background: var(--color-primary);
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      padding: 56px 24px;
+      font-size: 0.9rem;
+    }
+    .legal-footer strong { color: var(--color-accent); }
+    .legal-footer a {
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(255,255,255,0.4);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      body { padding-top: 70px; }
+      .legal-hero { padding: 60px 16px 80px; }
+      .toc-bar { top: 70px; padding: 12px 16px; }
+      .toc-bar a { padding: 8px 14px; font-size: 0.8rem; }
+      .legal-wrapper { padding: 36px 16px 80px; }
+      .legal-card { padding: 28px 20px; margin-bottom: 32px; }
+      .legal-card-header { gap: 14px; }
+      .legal-card-icon { width: 50px; height: 50px; font-size: 1.4rem; border-radius: 14px; }
+      .legal-card-header h2 { font-size: 1.25rem; }
+      .clause h3 { font-size: 1rem; }
+      .grad-table th, .grad-table td { padding: 12px 14px; font-size: 0.88rem; }
+    }
+
+    /* ── LEGAL DARK MODE ── */
+    [data-theme="dark"] .legal-card { background: #1A2D3D; }
+    [data-theme="dark"] .toc-bar { background: var(--color-bg); }
+    [data-theme="dark"] .toc-bar a { background: #1A2D3D; color: var(--color-text); border-color: var(--color-border); }
+    [data-theme="dark"] .toc-bar a:hover, [data-theme="dark"] .toc-bar a.active { background: var(--color-accent); color: #fff; }
+    [data-theme="dark"] .clause p, [data-theme="dark"] .clause ul li { color: var(--color-text); }
+    [data-theme="dark"] .info-box { background: #162635; color: var(--color-text); }
+    [data-theme="dark"] .info-box.accent { background: rgba(198,161,91,0.1); color: var(--color-accent-light); }
+    [data-theme="dark"] .grad-table tbody tr:nth-child(even) { background: #162635; }
+    [data-theme="dark"] .grad-table td { color: var(--color-text); border-color: var(--color-border); }
+    [data-theme="dark"] .legal-footer { background: #0A1520; }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR (identical to main site) ── -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="logo-nav.png" alt="أصولي | إدارة عقارية وحماية قانونية" class="logo-img" loading="lazy">
+      </a>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html#what-we-offer" class="nav-link">خدماتنا</a>
+        <a href="lawyers.html" class="nav-link">شبكة المحامين</a>
+        <a href="partners.html" class="nav-link">شركاؤنا</a>
+        <a href="index.html#pricing" class="nav-link">التسعير</a>
+        <a href="index.html#faq" class="nav-link">الأسئلة</a>
+        <a href="legal.html" class="nav-link active">الوثائق القانونية</a>
+        <div class="login-dropdown-wrapper">
+            <button class="login-btn" id="login-btn-nav" aria-expanded="false">
+                دخول المنصة <i data-lucide="user-circle" style="width: 18px; height: 18px;"></i>
+            </button>
+            <div class="login-dropdown-menu">
+                <a href="login.html#owner" class="login-option owner-option">
+                    <span class="login-option-icon"><i data-lucide="building-2"></i></span>
+                    <div><strong>بوابة الملاك</strong><p>متابعة حسابك وعقارك</p></div>
+                </a>
+                <a href="login.html#tenant" class="login-option tenant-option">
+                    <span class="login-option-icon"><i data-lucide="key-round"></i></span>
+                    <div><strong>بوابة المستأجرين</strong><p>الدفع والفواتير</p></div>
+                </a>
+            </div>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary nav-cta">ابدأ حماية عقارك</a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+
+  <!-- ── HERO ── -->
+  <div class="legal-hero">
+    <div class="badge mb-4">
+      <span class="badge-dot"></span> الإطار القانوني لأصولي
+    </div>
+    <h1>الشروط والسياسات القانونية</h1>
+    <p>نحن لا نبيع خدمة إدارة — نبيع راحة البال والحماية ضد المخاطر القانونية والمالية.<br>اقرأ التزاماتنا تجاهك بدقة.</p>
+    <span class="badge-date">📅 آخر تحديث: أبريل 2025</span>
+  </div>
+
+  <!-- ── TOC ── -->
+  <nav class="toc-bar" aria-label="فهرس الوثائق">
+    <a href="#terms">📄 اتفاقية الإدارة والتشغيل</a>
+    <a href="#pricing">💰 نموذج العمل والرسوم</a>
+    <a href="#risks">🛡️ مصفوفة المخاطر</a>
+    <a href="#platform">💻 نظام الموافقات</a>
+    <a href="#privacy">🔐 سياسة الخصوصية</a>
+  </nav>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="legal-wrapper">
+
+    <!-- ===== TERMS ===== -->
+    <section class="legal-card" id="terms">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">📄</div>
+        <h2>طبيعة الخدمة والاتفاقية <small>Nature of Service & Agreement</small></h2>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">1</span>ما هي أصولي؟ — الفلسفة التشغيلية</h3>
+        <div class="info-box accent">
+          💡 أصولي ليست وسيطاً عقارياً ولا شركة سمسرة. أصولي هي <strong>نظام إدارة مخاطر عقارية وحماية قانونية</strong>. المالك هو من يؤجر عقاره، وأصولي تتولى إدارة ما بعد التأجير بالكامل.
+        </div>
+        <p>تتمحور القيمة الجوهرية لأصولي حول ثلاثة محاور لا تتجزأ:</p>
+        <ul>
+          <li>بيع الطمأنينة والحماية الكاملة للمالك</li>
+          <li>نقل المخاطر القانونية والمالية من المالك إلى نظام أصولي</li>
+          <li>توفير الحماية القانونية الاستباقية قبل وقوع النزاع</li>
+        </ul>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">2</span>الهيكل التعاقدي المعتمد</h3>
+        <p>تنظم العلاقة بين أصولي والمالك شبكة وثائق قانونية متكاملة لضمان أقصى حماية:</p>
+        <ul>
+          <li>اتفاقية الإدارة والتشغيل والتحصيل والحماية الشاملة</li>
+          <li>تفويض قانوني بالإدارة والتوقيع نيابةً عن المالك</li>
+          <li>تفويض صريح بالتحصيل وإجراء المقاصة المالية</li>
+          <li>ملحق سياسة التأجير (يحدد معايير قبول المستأجرين)</li>
+          <li>مصادقة قانونية معتمدة من محامٍ مرخّص</li>
+          <li>تأجيل وكالة المحامي — تُفعَّل فقط عند حدوث نزاع فعلي</li>
+        </ul>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">3</span>بند "المحرر اللاحق" — ضمانة حماية جوهرية</h3>
+        <div class="info-box danger">
+          ⚠️ تعتبر أصولي المرجع الحصري المعتمد لأي اتفاق مع المستأجر. أي اتفاق شفهي أو مستند يوقعه المالك لاحقاً مع المستأجر خارج إطار أو علم أصولي يعتبر <strong>باطلاً ولا يُعتد به تجاه أصولي</strong>، وقد يؤدي فوراً إلى إسقاط التغطية القانونية الشاملة عن الملف.
+        </div>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">4</span>التزامات المالك</h3>
+        <ul>
+          <li>تقديم معلومات صحيحة ودقيقة وشاملة عن العقار والمستأجر</li>
+          <li>الإفصاح الفوري عن أي نزاعات سابقة أو قائمة</li>
+          <li>عدم إبرام أي ترتيبات مالية جانبية مع المستأجر خارج النظام</li>
+          <li>الالتزام بسياسة التأجير المحددة في الملحق</li>
+          <li>إخطار أصولي فور أي تغيير في وضع العقار أو المستأجر</li>
+        </ul>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">5</span>إنهاء العلاقة التعاقدية</h3>
+        <ul>
+          <li>يتم الإنهاء بإشعار مكتوب مسبق مدته 30 يوم عمل</li>
+          <li>عند الإنهاء تتم تسوية جميع المستحقات المالية للفترة المنقضية</li>
+          <li>يحق لأصولي الإنهاء الفوري في حال الغش أو المعلومات المضللة</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="legal-card" id="pricing">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">💰</div>
+        <h2>نموذج العمل المالي <small>Financial & Commission Model</small></h2>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">1</span>مبدأ "لا ربح لنا إلا إذا ربحت"</h3>
+        <ul>
+          <li>لا توجد أي رسوم تسجيل مسبقة أو اشتراكات سنوية ثابتة</li>
+          <li>تستحق أصولي نسبة تتراوح بين <strong>8% إلى 12%</strong> من قيمة الإيجار المحصَّل فعلياً (تُحدد في الاتفاقية حسب نوع العقار وحالته)</li>
+          <li>عند تعثّر المستأجر تتوقف العمولة فوراً وتتحمل أصولي العبء التشغيلي والقانوني</li>
+        </ul>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">2</span>المقاصة المالية الحتمية</h3>
+        <p>تنفيذاً لتفويض التحصيل، يحق لأصولي إجراء المقاصة القانونية <strong>قبل</strong> تحويل الرصيد للمالك — أي خصم نسبة أصولي وأي مصاريف متفق عليها مباشرةً من المبلغ المحصّل، دون الحاجة لإرسال كامل المبلغ ثم مطالبة المالك.</p>
+        <div class="info-box">
+          ✅ يُصدر كشف حساب شهري تفصيلي بكل عملية استلام وتحويل وخصم — شفافية كاملة في كل خطوة.
+        </div>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">3</span>أتعاب المحاماة والتغطية القانونية</h3>
+        <p>ضمن نظام أصولي، تكون أتعاب المحاماة والرسوم القضائية للملف القياسي مشمولة بالتغطية القانونية وفق جدول مصفوفة المخاطر الموضح في القسم التالي. تُحدد قيمة التغطية في الاتفاقية بناءً على نوع الملف وطبيعة النزاع.</p>
+      </div>
+    </section>
+
+    <!-- ===== RISK MATRIX ===== -->
+    <section class="legal-card" id="risks">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">🛡️</div>
+        <h2>مصفوفة المستأجرين والتغطية <small>Tenant Risk & Coverage Matrix</small></h2>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">1</span>المستأجر الجديد — التغطية الكاملة من اليوم الأول</h3>
+        <p>المستأجر الذي يدخل العقار بناءً على ترشيح وفحص شامل (مالي، قضائي، وتجاري) من أصولي يخضع للتغطية القانونية الكاملة فوراً منذ اليوم الأول.</p>
+        <div class="info-box accent">
+          🔍 الفحص يشمل: السجل القضائي، الوضع المالي، وسجل الالتزامات التجارية — لأن الوقاية خير من العلاج.
+        </div>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">2</span>المستأجر القائم — نظام التدرج الزمني (تركة الماضي)</h3>
+        <p>أي مستأجر متواجد في العقار قبل استلام أصولي للإدارة يخضع لنظام التدرج الزمني لتوزيع المسؤولية:</p>
+
+        <table class="grad-table">
+          <thead>
+            <tr>
+              <th>فترة إدارة أصولي للعقار</th>
+              <th>توزيع المسؤولية (ملف النزاع + التكاليف)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>من <span class="highlight-primary">0 إلى 3 أشهر</span></td>
+              <td>المالك يتحمل <span class="highlight">100%</span> — أصولي تُعيد عمولة شهر كبادرة حسن نية</td>
+            </tr>
+            <tr>
+              <td>من <span class="highlight-primary">3 إلى 6 أشهر</span></td>
+              <td><span class="highlight">50%</span> على المالك / <span class="highlight-success">50%</span> على أصولي</td>
+            </tr>
+            <tr>
+              <td>من <span class="highlight-primary">6 إلى 9 أشهر</span></td>
+              <td>المالك يتحمل <span class="highlight">25%</span> فقط — أصولي تتحمل الباقي</td>
+            </tr>
+            <tr>
+              <td>بعد <span class="highlight-primary">9 أشهر فأكثر</span></td>
+              <td><span class="highlight-success">أصولي تتحمل 100%</span> — تغطية شاملة ومطلقة</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="info-box">
+          📌 يهدف هذا النظام لحماية المالك بشكل متصاعد مع إثبات أصولي حسن إدارتها، وضمان عدم تحميل أصولي تبعات اتفاقات وأخطاء سابقة لم تكن طرفاً فيها.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PLATFORM & APPROVALS ===== -->
+    <section class="legal-card" id="platform">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">💻</div>
+        <h2>نظام المنصة وسجل الموافقات <small>Platform & Approval System</small></h2>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">1</span>إنهاء فوضى التواصل غير الموثق</h3>
+        <p>تعتمد أصولي حساباً موحداً للمالك ضمن المنصة لإنهاء الفوضى الناتجة عن التعليمات الشفهية ودردشات واتساب المبعثرة. يُوثَّق عبره:</p>
+        <ul>
+          <li>إدارة الوحدات وبياناتها</li>
+          <li>سجل التحصيل والتحويلات</li>
+          <li>سجل المستندات والعقود</li>
+          <li>سجل القضايا والإجراءات</li>
+          <li><strong>سجل الموافقات</strong> — الأهم والأكثر أثراً قانونياً</li>
+        </ul>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">2</span>أنواع الموافقات المعتمدة</h3>
+        <ul>
+          <li><strong>موافقات تشغيلية:</strong> تحديد الحد الأدنى للإيجار، مدة العقد، شروط الاستخدام</li>
+          <li><strong>موافقات فردية:</strong> منح خصم، جدولة دفعات، تأجيل استحقاق</li>
+          <li><strong>موافقات جوهرية:</strong> إبرام تسوية مالية، إصدار براءة ذمة، إسقاط حق عن المستأجر</li>
+        </ul>
+        <div class="info-box accent">
+          ✅ أي موافقة تتم عبر المنصة تُعد <strong>سنداً قانونياً وتفويضاً نهائياً</strong> لأصولي لتنفيذ الأمر نيابةً عن المالك — توثيق كامل لكل قرار.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRIVACY ===== -->
+    <section class="legal-card" id="privacy" style="margin-bottom: 0;">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">🔐</div>
+        <h2>سياسة الخصوصية وحماية البيانات <small>Privacy Policy</small></h2>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">1</span>جمع البيانات واستخدامها</h3>
+        <ul>
+          <li>نجمع بيانات المالك والمستأجر والعقار (وثائق قانونية، سجلات سداد، مراسلات) حصراً لأغراض إدارة وتشغيل وحماية العقار</li>
+          <li>لا يتم بيع أو استغلال قاعدة البيانات لأي أغراض خارج نطاق الخدمة الاتفاقية</li>
+          <li>تُشارَك بعض البيانات مع المحامين المعتمدين عند اتخاذ إجراءات قانونية — بعد إشعار المالك</li>
+          <li>جميع بيانات سجل الموافقات مُشفَّرة وتُعدّ عقوداً وتفويضات شرعية محفوظة أرشيفياً</li>
+        </ul>
+      </div>
+
+      <div class="clause">
+        <h3><span class="clause-num">2</span>حقوقك وحماية بياناتك</h3>
+        <ul>
+          <li>حق الاطلاع: طلب نسخة من بياناتك المحفوظة لدينا في أي وقت</li>
+          <li>حق التصحيح: تصحيح أي معلومات غير دقيقة</li>
+          <li>حق الحذف: طلب مسح البيانات ضمن حدود الالتزامات القانونية</li>
+        </ul>
+        <div class="info-box">
+          📩 للتواصل بشأن بياناتك: <a href="mailto:info@ossoolli.online" style="color: var(--color-primary); font-weight: 700;">info@ossoolli.online</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="legal-footer">
+    <img src="logo-nav.png" alt="أصولي" style="height: 36px; margin-bottom: 20px; opacity: 0.9; display: block; margin-left: auto; margin-right: auto;">
+    <p>© 2026 <strong>أصولي | Ossoolli</strong> — إدارة أصول، حماية استثمار، وراحة بال</p>
+    <p style="margin-top: 12px;">المملكة الأردنية الهاشمية &nbsp;|&nbsp;
+      <a href="mailto:info@ossoolli.online">info@ossoolli.online</a> &nbsp;|&nbsp;
+      <a href="index.html">العودة للرئيسية</a>
+    </p>
+  </footer>
+
+  <!-- Reuse same script for hamburger menu -->
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const overlay = document.getElementById('mobile-overlay');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('open');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+      overlay.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    }
+
+    // Active TOC link on scroll
+    const sections = document.querySelectorAll('.legal-card[id]');
+    const tocLinks = document.querySelectorAll('.toc-bar a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-bar a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    // Navbar scroll
+    const nav = document.getElementById('navbar');
+    if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
+
+    // Initialize Lucide Icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+  </script>
+
+</body>
+</html>

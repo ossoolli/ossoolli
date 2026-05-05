@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أصولي (ossoolli) | إدارة عقارية وحماية قانونية احترافية في الأردن</title>
+    <meta name="description" content="أصولي — إدارة عقارية وحماية قانونية لملاك العقارات في الأردن. تحصيل الإيجار، صياغة العقود، ورفع دعاوى الإخلاء مجاناً.">
+    
+    <meta property="og:title" content="أصولي | إيجارك محمي قانونياً">
+    <meta property="og:description" content="ندير عقارك، نتابع الدفع، ونتولى الإجراءات القانونية — بدون أي تكلفة مقدمة.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ossoolli.online">
+    <meta property="og:image" content="https://ossoolli.online/logo-nav.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ar_JO">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="أصولي | إيجارك محمي قانونياً">
+    <meta name="twitter:description" content="ندير عقارك، نتابع الدفع، ونتولى الإجراءات القانونية — بدون أي تكلفة مقدمة.">
+    <meta name="twitter:image" content="https://ossoolli.online/logo-nav.png">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "أصولي",
+      "url": "https://ossoolli.online",
+      "telephone": "+962780719787",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "عمان",
+        "addressCountry": "JO"
+      },
+      "description": "شركة إدارة عقارية وحماية قانونية في الأردن"
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Inline script to prevent FOUC for dark mode -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('ossoolli-theme');
+        if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); }
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo-nav.png" alt="أصولي | إدارة عقارية وحماية قانونية" class="logo-img" loading="lazy">
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html#what-we-offer" class="nav-link">خدماتنا</a>
+                <a href="lawyers.html" class="nav-link">شبكة المحامين</a>
+                <a href="partners.html" class="nav-link">شركاؤنا</a>
+                <a href="index.html#pricing" class="nav-link">التسعير</a>
+                <a href="index.html#faq" class="nav-link">الأسئلة</a>
+                <a href="index.html#about" class="nav-link">من نحن</a>
+                <a href="legal.html" class="nav-link">الوثائق القانونية</a>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle-btn" aria-label="تبديل المظهر">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+
+                    <div class="login-dropdown-wrapper">
+                        <button class="login-btn" id="login-btn-nav" aria-expanded="false">
+                            دخول المنصة <i data-lucide="user-circle" style="width: 18px; height: 18px;"></i>
+                        </button>
+                        <div class="login-dropdown" id="login-dropdown-menu">
+                            <a href="login.html#owner" class="login-dropdown-item glass-card">
+                                <div class="login-icon-box">
+                                    <i data-lucide="building-2"></i>
+                                </div>
+                                <div class="login-text-box">
+                                    <span class="login-drop-title">بوابة المُلّاك</span>
+                                    <span class="login-drop-desc">إدارة عقاراتك وتقاريرك</span>
+                                </div>
+                            </a>
+                            <a href="login.html#tenant" class="login-dropdown-item glass-card">
+                                <div class="login-icon-box">
+                                    <i data-lucide="key-round"></i>
+                                </div>
+                                <div class="login-text-box">
+                                    <span class="login-drop-title">بوابة المستأجرين</span>
+                                    <span class="login-drop-desc">دفع الإيجار وإشعاراتك</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+        <!-- Particles container -->
+        <div id="particles-js" class="particles-container"></div>
+        
+        <div class="container hero-container grid-2">
+            <div class="hero-content reveal" data-delay="0">
+                <div class="hero-badge badge glass-badge">
+                    <i data-lucide="shield" style="width:16px;height:16px;margin-left:6px;color:var(--primary-light);"></i>
+                    حلول إدارية وقانونية عقارية
+                </div>
+                <h1 class="hero-title gradient-text">
+                    إيجارك محمي قانونياً…<br>
+                    بدون أي تكلفة عليك
+                </h1>
+                <p class="hero-subtitle mb-4">
+                    نحن ندير عقارك، نتابع الدفع، ونتولى الإجراءات القانونية عند الحاجة — وأنت مرتاح.
+                </p>
+                <div class="hero-ctas">
+                    <a href="index.html#contact" class="btn btn-hero btn-lg w-100-mobile hover-lift">ابدأ حماية عقارك الآن</a>
+                    <p class="text-sm mt-3 fw-bold risk-reversal-text">ابدأ الآن — بدون أي التزام أو دفع مسبق</p>
+                </div>
+                
+                <div class="hero-trust-badges mt-4">
+                    <div class="trust-badge-small glass-card hover-lift">
+                        <i data-lucide="shield-check" class="tech-icon text-accent"></i>
+                        <span>حماية قانونية كاملة</span>
+                    </div>
+                    <div class="trust-badge-small glass-card hover-lift">
+                        <i data-lucide="coins" class="tech-icon text-gold"></i>
+                        <span>تحصيل أو لا عمولة</span>
+                    </div>
+                    <div class="trust-badge-small glass-card hover-lift">
+                        <i data-lucide="sparkles" class="tech-icon text-primary-light"></i>
+                        <span>بدون رسوم تأسيس</span>
+                    </div>
+                </div>
+
+                <!-- STATS COUNTERS -->
+                <div class="hero-stats mt-4 countup-section">
+                    <div class="hero-stat-item">
+                        <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label text-sm fw-bold">عقد مُدار</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-plus">%</span><span class="stat-number" data-target="0">0</span>
+                        <span class="stat-label text-sm fw-bold">رسوم مقدمة</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-number" data-target="6">0</span>
+                        <span class="stat-label text-sm fw-bold">خطوات فقط</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Hero Visual hidden/adjusted via CSS -->
+            <div class="hero-visual reveal" data-delay="100">
+                 <!-- The visual is now heavily stylized in CSS with glows, or we keep a simplified SVG here -->
+                 <div class="hero-dashboard-mockup glass-card glow-shadow">
+                     <div class="mockup-header">
+                         <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+                         <div class="title-mockup">منصة أصولي للإدارة</div>
+                     </div>
+                     <div class="mockup-body">
+                         <div class="mockup-line w-80"></div>
+                         <div class="mockup-line w-60"></div>
+                         <div class="mockup-box w-100 mt-2 p-2" style="background:var(--success);color:#fff;border-radius:4px;text-align:center;">تم التحصيل بنجاح</div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+
+        <!-- Animated SVG Wave Transition -->
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path class="wave-path" d="M0,0 C320,100 420,100 720,50 C1020,0 1120,0 1440,50 L1440,120 L0,120 Z"></path>
+            </svg>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+    <!-- PAIN AGITATION - Bento Grid -->
+    <section id="pain" class="section reveal pt-0 pb-0">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge danger-badge glass-badge">واقع مؤلم</div>
+                <h2 class="section-title">كم مرة تأخر عليك مستأجر؟</h2>
+                <p class="section-subtitle">مشاكل متكررة تواجه مئات الملاك يومياً</p>
+            </div>
+            
+            <div class="bento-grid mb-4">
+                <div class="bento-card bento-large bento-red glass-card hover-tilt">
+                    <div class="bento-number text-danger">×3</div>
+                    <i data-lucide="hourglass" class="bento-icon"></i>
+                    <h3>تأخير مستمر</h3>
+                    <p>مماطلة وتأخير يجعل تخطيطك المالي مستحيلاً.</p>
+                </div>
+                
+                <div class="bento-card bento-small bento-orange glass-card hover-tilt">
+                    <i data-lucide="message-square-dashed" class="bento-icon"></i>
+                    <h3>أعذار متكررة</h3>
+                    <p>استنزاف لطاقتك في مطالبات شهرية ومواجهات مباشرة.</p>
+                </div>
+                
+                <div class="bento-card bento-small bento-purple glass-card hover-tilt">
+                    <i data-lucide="banknote" class="bento-icon"></i>
+                    <h3>خسارة دخل</h3>
+                    <p>فواتير غير مدفوعة وأشهر من الإيجار الضائع دون تعويض.</p>
+                </div>
+                
+                <div class="bento-card bento-large bento-blue glass-card hover-tilt">
+                    <i data-lucide="scale" class="bento-icon bento-icon-large scale-icon"></i>
+                    <h3>قضايا طويلة</h3>
+                    <p>إذا قررت اللجوء للقضاء، ستدفع رسوم وتنتظر شهوراً طويلة.</p>
+                </div>
+            </div>
+
+            <div class="center mt-5 transition-arrow-box reveal">
+                <div class="badge badge-lg transformation-badge">نحن نحولك من مالك قلق ➔ إلى مالك مرتاح 100%</div>
+                <div class="mt-3">
+                    <a href="#execution-flow" class="text-primary-light fw-bold text-sm down-arrow-link">كيف ننهي هذه المعاناة؟ <i data-lucide="arrow-down" style="display:inline; width:16px; margin-right:4px;"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER / PROCESS OVERVIEW -->
+    <section id="what-we-offer" class="section reveal">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-primary-light">نموذج العمل</div>
+                <h2 class="section-title">كيف نخدم استثمارك؟</h2>
+                <p class="section-subtitle">أنت صاحب القرار الأول، ونحن الشريك الاستراتيجي</p>
+            </div>
+            <div class="process-grid grid-3">
+                <div class="process-card glass-card hover-lift">
+                    <div class="process-icon">1</div>
+                    <h3>توكيل أصولي</h3>
+                    <p>توقع عقد إدارة مبسط معنا لنبدأ فوراً بحماية ممتلكاتك وتحصيل حقوقك دون تدخل منك.</p>
+                </div>
+                <div class="process-card glass-card hover-lift">
+                    <div class="process-icon">2</div>
+                    <h3>تشغيل ومتابعة</h3>
+                    <p>نتولى صياغة العقود القانونية المحكمة وتوقيع المستأجرين، ثم نبدأ بالتحصيل الشهري.</p>
+                </div>
+                <div class="process-card glass-card gold-border hover-lift">
+                    <div class="process-icon gold icon-glow">3</div>
+                    <h3>ندير ونحمي</h3>
+                    <p>نتولى التحصيل الشهري والمتابعة. وفي حال تأخر الدفع، نتولى رفع القضايا و الإخلاء مجاناً.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXECUTION FLOW - Horizontal Timeline -->
+    <section id="execution-flow" class="section bg-card reveal">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-primary-light">آلية التنفيذ</div>
+                <h2 class="section-title">كيف تتم العملية فعلياً من البداية للنهاية؟</h2>
+                <p class="section-subtitle max-w-md center-block">من لحظة اختيار المستأجر حتى إدارة الإيجار والحماية القانونية الكاملة</p>
+            </div>
+
+            <div class="horizontal-timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-steps">
+                    <!-- Step 1 -->
+                    <div class="timeline-step-item reveal-stagger">
+                        <div class="step-circle gradient-btn">1</div>
+                        <div class="step-content glass-card">
+                            <h3>استلام بيانات العقار</h3>
+                            <p>بعد تواصلك معنا، نقوم باستلام بيانات العقار وتوقيع تفويض الإدارة للبدء فوراً.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="timeline-step-item reveal-stagger">
+                        <div class="step-circle gradient-btn">2</div>
+                        <div class="step-content glass-card">
+                            <h3>التدقيق وصياغة العقود</h3>
+                            <p>نقوم بتنظيم العقود القانونية مع المستأجرين لضمان عدم وجود ثغرات تضر بملكيتك.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="timeline-step-item reveal-stagger gold-step">
+                        <div class="step-circle gradient-gold glow">3</div>
+                        <div class="step-content glass-card gold-border">
+                            <h3>التوقيع عبر شبكة المحامين</h3>
+                            <p>نوجّه المستأجر لأقرب مكتب محاماة معتمد لتوقيع عقد قانوني محكم وقابل للتنفيذ الفوري.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="timeline-step-item reveal-stagger">
+                        <div class="step-circle gradient-btn">4</div>
+                        <div class="step-content glass-card">
+                            <h3>بدء التحصيل الشهري</h3>
+                            <p>نتابع المستأجرين ونجبي الإيجارات الشهرية في موعدها لنودعها في حسابك مباشرة وبانتظام.</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="timeline-step-item reveal-stagger">
+                        <div class="step-circle gradient-btn">5</div>
+                        <div class="step-content glass-card">
+                            <h3>إدارة شاملة بدون تدخل</h3>
+                            <p>تحصيل الإيجار الشهري، متابعة الفواتير والخدمات، وتقديم تقارير دورية شفافة لك.</p>
+                        </div>
+                    </div>
+                    <!-- Step 6 -->
+                    <div class="timeline-step-item reveal-stagger gold-step">
+                        <div class="step-circle gradient-gold glow">6</div>
+                        <div class="step-content glass-card gold-border">
+                            <h3>حماية قانونية فورية عند التقصير</h3>
+                            <p>رفع دعوى الإخلاء فوراً والمطالبة المالية قانونياً، وأصولي تتحمل أتعاب المحاماة والرسوم.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RISK / PROTECTION SECTION -->
+    <section id="risk" class="section reveal">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-primary-light">الحماية</div>
+                <h2 class="section-title">درع قانوني لإيجارك</h2>
+            </div>
+            
+            <!-- Glass Grid -->
+            <div class="protection-grid">
+                <div class="protection-card glass-card hover-lift">
+                    <div class="watermark-number">01</div>
+                    <h3 class="flex-align mb-3 z-rel"><i data-lucide="search" class="text-primary-light"></i> التحقق العميق</h3>
+                    <p class="z-rel">تدقيق مالي وقانوني للمستأجر قبل توقيع العقد، لضمان استبعاد المتعثرين أصحاب السوابق.</p>
+                </div>
+                <div class="protection-card glass-card hover-lift">
+                    <div class="watermark-number">02</div>
+                    <h3 class="flex-align mb-3 z-rel"><i data-lucide="file-signature" class="text-primary-light"></i> العقود التنفيذية</h3>
+                    <p class="z-rel">عقود إيجار محكمة صيغت بخبرة لضمان التنفيذ القضائي السريع عند حدوث الإخلال بلا مماطلة.</p>
+                </div>
+                <div class="protection-card glass-card hover-lift">
+                    <div class="watermark-number">03</div>
+                    <h3 class="flex-align mb-3 z-rel"><i data-lucide="bell-ring" class="text-primary-light"></i> ملاحقة التأخير</h3>
+                    <p class="z-rel">متابعة شخصية للمستأجر من اليوم الأول للتأخير في الدفعة، باستخدام الإشعارات الرسمية والاتصالات.</p>
+                </div>
+                <div class="protection-card glass-card hover-lift">
+                    <div class="watermark-number">04</div>
+                    <h3 class="flex-align mb-3 z-rel"><i data-lucide="landmark" class="text-primary-light"></i> التكاليف علينا</h3>
+                    <p class="z-rel">تتم تغطية كافة رسوم المحكمة وأتعاب المحاماة في حالات الإخلاء والمطالبات المالية وفق السياسة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NON-PAYMENT (Progress Bar) -->
+    <section id="nonpayment" class="section bg-card reveal pb-5">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-danger">المسار القانوني</div>
+                <h2 class="section-title">ماذا لو تأخر المستأجر؟</h2>
+            </div>
+            
+            <div class="legal-progress-container glass-card p-4">
+                <div class="legal-progress-track">
+                    <div class="legal-progress-fill" id="legal-progress-fill"></div>
+                    
+                    <div class="progress-point state-orange">
+                        <div class="point-circle"></div>
+                        <div class="point-label">يوم 1<br><span>تنبيه فوري</span></div>
+                    </div>
+                    <div class="progress-point state-orange">
+                         <div class="point-circle"></div>
+                         <div class="point-label">5 أيام<br><span>إشعار رسمي</span></div>
+                    </div>
+                    <div class="progress-point state-red">
+                         <div class="point-circle"></div>
+                         <div class="point-label">15 يوم<br><span>إنذار عدلي</span></div>
+                    </div>
+                    <div class="progress-point state-red">
+                         <div class="point-circle"></div>
+                         <div class="point-label">30 يوم<br><span>رفع دعوى</span></div>
+                    </div>
+                    <div class="progress-point state-green">
+                         <div class="point-circle"><i data-lucide="check" style="color:white;width:12px;"></i></div>
+                         <div class="point-label">✓<br><span>استعادة العقار</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert-box danger-box mt-5 text-center max-w-md center-block">
+                لا تنتظر حتى يتراكم التأخر — كل يوم له تكلفة
+            </div>
+            <p class="text-center text-secondary mt-3 text-sm">التكاليف القانونية وأتعاب المحاماة مغطاة بالكامل بناء على شروط الشركة.</p>
+        </div>
+    </section>
+
+    <!-- COMPARE SECTION -->
+    <section id="compare" class="section reveal">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-primary-light">المقارنة</div>
+                <h2 class="section-title">أصولي مقابل الإدارة الذاتية</h2>
+            </div>
+            
+            <div class="comparison-container max-w-lg center-block">
+                <!-- Toggle Switch -->
+                <div class="compare-toggle-wrapper">
+                    <span class="toggle-label" id="label-without">بدون أصولي</span>
+                    <label class="switch">
+                        <input type="checkbox" id="compare-toggle" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label active" id="label-with">مع أصولي</span>
+                </div>
+                
+                <!-- Dynamic Content -->
+                <div class="compare-content glass-card" id="compare-box">
+                    <ul class="compare-list" id="compare-list">
+                        <!-- Content injected via JS based on toggle -->
+                    </ul>
+                    <div class="compare-badge-recommended" id="recommended-badge">موصى به</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="section bg-card reveal">
+        <div class="container flex-center">
+            <div class="floating-pricing-card glass-card hover-lift glow-shadow">
+                <div class="pricing-header">
+                    <div class="badge gold-badge recommended-badge">الأكثر شفافية</div>
+                </div>
+                
+                <h2 class="pricing-title">صفر رسوم مقدمة</h2>
+                
+                <div class="commission-rate gradient-text">8-12%</div>
+                <p class="pricing-subtitle">من قيمة الإيجار المحصل فعلياً فقط</p>
+                
+                <ul class="pricing-includes">
+                    <li><i data-lucide="check-circle-2" class="text-success"></i> صفر رسوم تأسيس أو تعاقد</li>
+                    <li><i data-lucide="check-circle-2" class="text-success"></i> صياغة العقود مجانية</li>
+                    <li><i data-lucide="check-circle-2" class="text-success"></i> فحص مالي وقانوني للمستأجر</li>
+                    <li><i data-lucide="check-circle-2" class="text-success"></i> نتحمل كافة أتعاب المحامين في الإخلاء</li>
+                    <li><i data-lucide="check-circle-2" class="text-success"></i> نتحمل رسوم المحاكم حال التقصير</li>
+                </ul>
+                
+                <p class="text-sm text-center text-secondary mb-4 mt-2">لا تدفع أي شيء مقدماً. لم يُحصَّل الإيجار؟ لا عمولة.</p>
+                
+                <a href="index.html#contact" class="btn btn-hero btn-full hover-lift">ابدأ بدون مخاطرة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (Custom Vanilla JS Carousel) -->
+    <section id="testimonials" class="section reveal pt-5">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-primary-light">آراء الملاك</div>
+                <h2 class="section-title">قصص نجاح من ملاك اختاروا راحة البال</h2>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="testimonial-track">
+                    <div class="carousel-slide glass-card">
+                        <i data-lucide="quote" class="quote-icon decorative"></i>
+                        <p class="testimonial-text">"كنت أعاني لسنوات من تأخير الإيجار وملاحقة المستأجرين في المحاكم. منذ تعاقدي مع أصولي، أستلم إيجاري وأنا مطمئن، وتكفلوا هم بكل الإجراءات."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-avatar">ع.غ</div>
+                            <div class="author-info">
+                                <h4>عبد الله غ.</h4>
+                                <p>مالك عمارة سكنية - عمان</p>
+                                <span class="verified-badge"><i data-lucide="badge-check" style="width:12px;display:inline;"></i> تم التحقق</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide glass-card">
+                        <i data-lucide="quote" class="quote-icon decorative"></i>
+                        <p class="testimonial-text">"أفضل قرار اتخذته كمغترب. لا أضطر للنزول للأردن لحل مشاكل العقار. أصولي وفرت لي حماية صارمة وعقود لا ثغرات فيها. الدخل الآن مستقر تماماً."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-avatar">م.أ</div>
+                            <div class="author-info">
+                                <h4>محمد أ.</h4>
+                                <p>مستثمر مغترب</p>
+                                <span class="verified-badge"><i data-lucide="badge-check" style="width:12px;display:inline;"></i> تم التحقق</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide glass-card">
+                        <i data-lucide="quote" class="quote-icon decorative"></i>
+                        <p class="testimonial-text">"ما شجعني هو عدم وجود رسوم تأسيس. هم يشاركونني المخاطرة ويأخذون نسبتهم فقط عندما أحصل على مالي. شفافية واحترافية والتزام بالتحويل المالي."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-avatar">ل.ج</div>
+                            <div class="author-info">
+                                <h4>ليث ج.</h4>
+                                <p>مالك شقق استوديوهات</p>
+                                <span class="verified-badge"><i data-lucide="badge-check" style="width:12px;display:inline;"></i> تم التحقق</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn prev-btn" id="carousel-prev" aria-label="السابق"><i data-lucide="chevron-right"></i></button>
+                <button class="carousel-btn next-btn" id="carousel-next" aria-label="التالي"><i data-lucide="chevron-left"></i></button>
+                
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section bg-card reveal">
+        <div class="container max-w-md center-block">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-primary-light">الأسئلة الشائعة</div>
+                <h2 class="section-title">إجابات شفافة</h2>
+            </div>
+            
+            <div class="accordion-container" id="faq-accordion">
+                <div class="accordion-item glass-card active">
+                    <button class="accordion-header">
+                        ما هي الرسوم التي أدفعها فعلياً؟
+                        <i data-lucide="minus" class="accordion-icon icon-minus"></i>
+                        <i data-lucide="plus" class="accordion-icon icon-plus" style="display:none;"></i>
+                    </button>
+                    <div class="accordion-content" style="max-height: 500px;">
+                        <p>ندرك قلق الملاك من الرسوم المخفية، لذا نموذجنا واضح: صفر رسوم عند توقيع العقد، صفر رسوم للمحامين. لا تدفع أي شيء مقدماً — يتم احتساب عمولة بسيطة فقط عند تحصيل الإيجار فعلياً ووضعه في حسابك البنكي. النسبة تتراوح عادةً بين 8%–12% من الإيجار الشهري المُحصَّل، وتُحدَّد بدقة بعد تقييم العقار.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item glass-card">
+                    <button class="accordion-header">
+                        ماذا لو رفض المستأجر الخروج عند انتهاء العقد؟
+                        <i data-lucide="plus" class="accordion-icon icon-plus"></i>
+                        <i data-lucide="minus" class="accordion-icon icon-minus" style="display:none;"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>لا تقلق، هذا هو جوهر عملنا. سنتولى رفع دعوى الإخلاء القانونية فوراً، ونتحمل كافة رسوم المحاكم وأتعاب المحاماة حتى قيام مأمور التنفيذ بتسليمك مفتاح عقارك خالياً من الشواغل.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item glass-card">
+                    <button class="accordion-header">
+                        هل أقوم أنا باختيار المستأجر؟
+                        <i data-lucide="plus" class="accordion-icon icon-plus"></i>
+                        <i data-lucide="minus" class="accordion-icon icon-minus" style="display:none;"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>نعم، أنت كمالك صاحب القرار المطلق. نحن لسنا وسطاء عقاريين ولا نستفيد من عمولة التأجير (القومسيون). دورنا يبدأ بعد أن تختار المستأجر، حيث نضمن لك فحص ملاءته المالية وبناء العقد المحكم الذي يحميك.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item glass-card">
+                    <button class="accordion-header">
+                        هل تدفع "أصولي" الإيجار عن المستأجر المتعثر؟
+                        <i data-lucide="plus" class="accordion-icon icon-plus"></i>
+                        <i data-lucide="minus" class="accordion-icon icon-minus" style="display:none;"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>لا، نحن شركة إدارة وحماية قانونية ولسنا شركة تأمين مالي. التزامنا هو تحصيل حقك قانونياً وتوفير كافة أتعاب المحاماة والرسوم لاستعادة عقارك ومستحقاتك.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item glass-card">
+                    <button class="accordion-header">
+                        ماذا لو دمر المستأجر العقار؟
+                        <i data-lucide="plus" class="accordion-icon icon-plus"></i>
+                        <i data-lucide="minus" class="accordion-icon icon-minus" style="display:none;"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>استلام وتسليم العقار يتم عبر ملحق تصويري وجرد موثق. في حال وجود أضرار تتجاوز الاستهلاك الطبيعي، نقوم باقتطاعها من التأمين (الذي نُلزم المستأجر بدفعه مسبقاً)، ونتخذ الإجراءات القانونية للمطالبة بفرق التعويض إن لزم الأمر.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item glass-card">
+                    <button class="accordion-header">
+                        كيف يتم تحويل الإيجار لحسابي؟
+                        <i data-lucide="plus" class="accordion-icon icon-plus"></i>
+                        <i data-lucide="minus" class="accordion-icon icon-minus" style="display:none;"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>يُحوَّل الإيجار (بعد خصم نسبة أصولي) إلى حسابك البنكي المعتمد خلال 7 أيام عمل من تاريخ التحصيل الفعلي، مع تزويدك بكشف إلكتروني يوثق العملية.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item glass-card">
+                    <button class="accordion-header">
+                        هل يمكنني إلغاء الخدمة في أي وقت؟
+                        <i data-lucide="plus" class="accordion-icon icon-plus"></i>
+                        <i data-lucide="minus" class="accordion-icon icon-minus" style="display:none;"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>بالتأكيد. الشراكة تُبنى على الرضا. يمكنك الإلغاء بإشعار مسبق مدته 30 يوماً دون دفع أي غرامات، على أن تُسوى أي أتعاب قانونية جارية حسب العقد.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section reveal pt-5 pb-5">
+        <div class="container grid-2 align-center">
+            
+            <div class="contact-info-block">
+                <h2 class="section-title text-start mb-3">ابدأ إدارة عقارك معنا</h2>
+                <p class="section-subtitle text-start mb-5">أرسل بياناتك الآن وسنتولى إدارة وحماية عقارك بالكامل</p>
+                
+                <div class="contact-details">
+                    <div class="detail-item glass-card">
+                        <i data-lucide="map-pin" class="text-primary-light"></i>
+                        <div>
+                            <h4>العنوان</h4>
+                            <p>عمان، الأردن</p>
+                        </div>
+                    </div>
+                    <div class="detail-item glass-card">
+                        <i data-lucide="phone" class="text-primary-light"></i>
+                        <div>
+                            <h4>رقم الهاتف</h4>
+                            <p dir="ltr" class="number-font">+962 780 719 787</p>
+                        </div>
+                    </div>
+                    <div class="detail-item glass-card">
+                        <i data-lucide="mail" class="text-primary-light"></i>
+                        <div>
+                            <h4>البريد الإلكتروني</h4>
+                            <p dir="ltr">info@ossoolli.online</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/962780719787" class="btn btn-whatsapp btn-lg mt-4 w-100-mobile hover-lift" target="_blank" rel="noopener">
+                    <i data-lucide="message-circle" style="fill: currentColor;"></i> التحدث معنا عبر واتساب
+                </a>
+            </div>
+
+            <div class="form-wrapper glass-card glow-shadow">
+                <form id="contactForm">
+                    <div class="floating-group">
+                        <input type="text" id="name" required class="floating-input" placeholder=" ">
+                        <label for="name" class="floating-label">الاسم الكامل</label>
+                        <div class="form-error-msg">يرجى إدخال الاسم</div>
+                    </div>
+                    
+                    <div class="floating-group">
+                        <input type="tel" id="phone" required class="floating-input number-font" placeholder=" " dir="ltr">
+                        <label for="phone" class="floating-label">رقم الهاتف (مثال: 07XXXXXXXX)</label>
+                        <div class="form-error-msg">رقم غير صالح</div>
+                    </div>
+                    
+                    <div class="floating-group">
+                        <input type="number" id="unitsCount" required class="floating-input number-font" placeholder=" " min="1" dir="ltr">
+                        <label for="unitsCount" class="floating-label">عدد الوحدات العقارية</label>
+                    </div>
+                    
+                    <div class="floating-group">
+                        <input type="text" id="location" required class="floating-input" placeholder=" ">
+                        <label for="location" class="floating-label">موقع العقار</label>
+                    </div>
+                    
+                    <div class="floating-group mb-4">
+                        <textarea id="notes" class="floating-input" placeholder=" " rows="3"></textarea>
+                        <label for="notes" class="floating-label">ملاحظات (اختياري)</label>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="btn btn-hero btn-full btn-lg hover-lift submit-btn">
+                        <span class="btn-text">إرسال الطلب</span>
+                        <i data-lucide="send" class="btn-icon"></i>
+                    </button>
+                    
+                    <p class="text-sm center mt-3 text-secondary">
+                        سيتواصل معك فريقنا خلال 24 ساعة
+                    </p>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ABOUT US (Condensed & Cleaned) -->
+    <section id="about" class="section bg-card reveal">
+        <div class="container">
+            <div class="section-header center mb-5">
+                <div class="badge glass-badge text-primary-light">من نحن</div>
+                <h2 class="section-title">الفريق خلف أصولي</h2>
+                <p class="section-subtitle">شركة أردنية متخصصة في إدارة العقارات وحماية حقوق المُلّاك</p>
+            </div>
+            <div class="grid-2 align-center">
+                <div class="about-text-content glass-card p-4">
+                    <div class="flex-align mb-4">
+                        <div class="icon-box-large gradient-btn"><i data-lucide="building-2"></i></div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">أصولي للإدارة العقارية</h3>
+                            <p class="text-sm text-secondary m-0">مسجلة في المملكة الأردنية الهاشمية</p>
+                        </div>
+                    </div>
+                    <p class="text-secondary line-height-lg mb-3">تأسست أصولي لحل مشكلة حقيقية يعاني منها آلاف الملّاك في الأردن: <strong>غياب الحماية القانونية الفعّالة لعقود الإيجار</strong>. نؤمن أن كل مالك يستحق نظام إدارة يحمي حقه ويُحصّل إيراداته دون عناء.</p>
+                    <p class="text-secondary line-height-lg">فريقنا يجمع بين خبرات في <strong>القانون العقاري</strong>، <strong>التكنولوجيا المالية</strong>، و<strong>إدارة الأملاك</strong> — نعمل مع شبكة من 40+ محامٍ معتمد في 12 محافظة لنضمن لك تغطية شاملة.</p>
+                </div>
+                
+                <div class="about-features-grid">
+                    <div class="about-feature-box glass-card card-sm flex-align">
+                        <i data-lucide="scale" class="text-gold"></i>
+                        <div><h4 class="m-0 mb-1 font-md">إطار قانوني متين</h4><p class="text-xs text-secondary m-0">عقود مصاغة وفق القانون الأردني</p></div>
+                    </div>
+                    <div class="about-feature-box glass-card card-sm flex-align">
+                        <i data-lucide="shield-check" class="text-success"></i>
+                        <div><h4 class="m-0 mb-1 font-md">شفافية كاملة</h4><p class="text-xs text-secondary m-0">لا رسوم مخفية — تدفع فقط عند التحصيل</p></div>
+                    </div>
+                    <div class="about-feature-box glass-card card-sm flex-align">
+                        <i data-lucide="map-pin" class="text-primary-light"></i>
+                        <div><h4 class="m-0 mb-1 font-md">تواجد محلي حقيقي</h4><p class="text-xs text-secondary m-0">في عمان و12 محافظة أردنية</p></div>
+                    </div>
+                    <div class="about-feature-box glass-card card-sm flex-align">
+                        <i data-lucide="clock" class="text-gold"></i>
+                        <div><h4 class="m-0 mb-1 font-md">استجابة سريعة</h4><p class="text-xs text-secondary m-0">فريق متاح على الدوام لخدمتك</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo mb-3">
+                        <img src="logo-footer.png" alt="أصولي | ossoolli" class="logo-img-footer" loading="lazy">
+                    </a>
+                    <p class="footer-tagline gradient-text fw-bold">إيجارك محمي قانونياً</p>
+                    <p class="text-secondary mt-2 text-sm line-height-lg">نغير مفهوم الاستثمار العقاري من خلال توفير إدارة موثوقة لحماية حقوق المالك وتحصيل إيراداته بنموذج خالي من المخاطرة.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="footer-links">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-list">
+                        <li><a href="index.html#what-we-offer" class="hover-text-primary-light">خدماتنا</a></li>
+                        <li><a href="index.html#pricing" class="hover-text-primary-light">التسعير</a></li>
+                        <li><a href="index.html#faq" class="hover-text-primary-light">الأسئلة الشائعة</a></li>
+                        <li><a href="#contact" class="hover-text-primary-light">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Legal -->
+                <div class="footer-legal">
+                    <h4 class="footer-title">الوثائق القانونية</h4>
+                    <ul class="footer-list">
+                        <li><a href="legal.html#terms" class="hover-text-primary-light">الشروط والأحكام</a></li>
+                        <li><a href="legal.html#pricing" class="hover-text-primary-light">نموذج العمولة</a></li>
+                        <li><a href="legal.html#privacy" class="hover-text-primary-light">سياسة الخصوصية</a></li>
+                        <li><a href="legal.html#disclaimer" class="hover-text-primary-light">إخلاء المسؤولية</a></li>
+                        <li><a href="legal.html#agreement" class="hover-text-primary-light">اتفاقية المالك</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact -->
+                <div class="footer-contact">
+                    <h4 class="footer-title">تواصل معنا</h4>
+                    <ul class="footer-list">
+                        <li class="flex-align mb-2"><i data-lucide="mail" style="width:16px;"></i> <a href="mailto:info@ossoolli.online" dir="ltr" class="hover-text-primary-light">info@ossoolli.online</a></li>
+                        <li class="flex-align mb-2"><i data-lucide="phone" style="width:16px;"></i> <a href="https://wa.me/962780719787" class="number-font hover-text-primary-light" dir="ltr">+962 780 719 787</a></li>
+                        <li class="flex-align mb-2"><i data-lucide="map-pin" style="width:16px;"></i> <span>عمان، الأردن</span></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="text-sm text-secondary m-0">&copy; 2026 أصولي (ossoolli) — جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+        <a href="https://wa.me/962780719787" class="btn btn-whatsapp w-100 btn-lg hover-lift">
+            <i data-lucide="message-circle" style="fill:currentColor"></i> تحدث معنا على واتساب
+        </a>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" class="back-to-top glass-card hover-lift" aria-label="العودة للأعلى">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast glass-card"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
