@@ -57,6 +57,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- TRUST TOP BAR -->
+    <div class="trust-top-bar">
+        <div class="container trust-bar-flex">
+            <span><i data-lucide="check-circle" style="width:14px;height:14px;margin-left:4px;"></i> يعمل مع ملاك حقيقيين</span>
+            <span><i data-lucide="shield-check" style="width:14px;height:14px;margin-left:4px;"></i> حماية قانونية صارمة</span>
+            <span><i data-lucide="coins" style="width:14px;height:14px;margin-left:4px;"></i> بدون رسوم مسبقة</span>
+        </div>
+    </div>
+
     <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"></div>
 
@@ -136,8 +145,9 @@
                     نحن ندير عقارك، نتابع الدفع، ونتولى الإجراءات القانونية عند الحاجة — وأنت مرتاح.
                 </p>
                 <div class="hero-ctas">
-                    <a href="index.html#contact" class="btn btn-hero btn-lg w-100-mobile hover-lift">ابدأ حماية عقارك الآن</a>
-                    <p class="text-sm mt-3 fw-bold risk-reversal-text">ابدأ الآن — بدون أي التزام أو دفع مسبق</p>
+                    <a href="index.html#contact" class="btn btn-hero btn-lg w-100-mobile hover-lift cta-trigger">ابدأ حماية عقارك الآن</a>
+                    <p class="text-xs mt-3 fw-bold fomo-text" style="color:var(--danger)"><i data-lucide="flame" style="width:14px;height:14px;display:inline;"></i> عدد محدود من الملاك نقبلهم شهرياً</p>
+                    <p class="text-sm mt-1 fw-bold risk-reversal-text">ابدأ الآن — بدون أي التزام أو دفع مسبق</p>
                 </div>
                 
                 <div class="hero-trust-badges mt-4">
@@ -239,7 +249,7 @@
             <div class="center mt-5 transition-arrow-box reveal">
                 <div class="badge badge-lg transformation-badge">نحن نحولك من مالك قلق ➔ إلى مالك مرتاح 100%</div>
                 <div class="mt-3">
-                    <a href="#execution-flow" class="text-primary-light fw-bold text-sm down-arrow-link">كيف ننهي هذه المعاناة؟ <i data-lucide="arrow-down" style="display:inline; width:16px; margin-right:4px;"></i></a>
+                    <a href="#contact" class="btn btn-hero btn-lg mt-3 hover-lift cta-trigger">تخلص من هذه المعاناة الآن</a><br><a href="#execution-flow" class="text-primary-light fw-bold text-sm down-arrow-link mt-4 inline-block">أو اكتشف كيف نعمل <i data-lucide="arrow-down" style="display:inline; width:16px; margin-right:4px;"></i></a>
                 </div>
             </div>
         </div>
@@ -440,6 +450,10 @@
                     </ul>
                     <div class="compare-badge-recommended" id="recommended-badge">موصى به</div>
                 </div>
+                <div class="center mt-5">
+                    <a href="#contact" class="btn btn-hero btn-lg hover-lift cta-trigger">اختر أصولي واحصل على راحة البال</a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -452,7 +466,7 @@
                     <div class="badge gold-badge recommended-badge">الأكثر شفافية</div>
                 </div>
                 
-                <h2 class="pricing-title">صفر رسوم مقدمة</h2>
+                <h2 class="pricing-title text-danger" style="font-size: 2.8rem; font-weight: 900;">صفر رسوم مقدمة</h2>
                 
                 <div class="commission-rate gradient-text">8-12%</div>
                 <p class="pricing-subtitle">من قيمة الإيجار المحصل فعلياً فقط</p>
@@ -490,7 +504,7 @@
                             <div class="author-info">
                                 <h4>عبد الله غ.</h4>
                                 <p>مالك عمارة سكنية - عمان</p>
-                                <span class="verified-badge"><i data-lucide="badge-check" style="width:12px;display:inline;"></i> تم التحقق</span>
+                                <span class="verified-badge"><i data-lucide="badge-check" style="width:14px;display:inline;"></i> تم التحقق <span style="opacity:0.6;font-size:0.7rem;margin-right:4px;">ملك موثق</span></span>
                             </div>
                         </div>
                     </div>
@@ -502,7 +516,7 @@
                             <div class="author-info">
                                 <h4>محمد أ.</h4>
                                 <p>مستثمر مغترب</p>
-                                <span class="verified-badge"><i data-lucide="badge-check" style="width:12px;display:inline;"></i> تم التحقق</span>
+                                <span class="verified-badge"><i data-lucide="badge-check" style="width:14px;display:inline;"></i> تم التحقق <span style="opacity:0.6;font-size:0.7rem;margin-right:4px;">ملك موثق</span></span>
                             </div>
                         </div>
                     </div>
@@ -514,7 +528,7 @@
                             <div class="author-info">
                                 <h4>ليث ج.</h4>
                                 <p>مالك شقق استوديوهات</p>
-                                <span class="verified-badge"><i data-lucide="badge-check" style="width:12px;display:inline;"></i> تم التحقق</span>
+                                <span class="verified-badge"><i data-lucide="badge-check" style="width:14px;display:inline;"></i> تم التحقق <span style="opacity:0.6;font-size:0.7rem;margin-right:4px;">ملك موثق</span></span>
                             </div>
                         </div>
                     </div>
@@ -797,11 +811,17 @@
         </div>
     </footer>
 
-    <!-- MOBILE STICKY CTA -->
-    <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-        <a href="https://wa.me/962780719787" class="btn btn-whatsapp w-100 btn-lg hover-lift">
-            <i data-lucide="message-circle" style="fill:currentColor"></i> تحدث معنا على واتساب
-        </a>
+    <!-- STICKY CTA -->
+    <div class="sticky-cta" id="sticky-cta">
+        <div class="container flex-align justify-between" style="padding:0">
+            <div class="sticky-cta-text hide-on-mobile">
+                <p class="m-0 fw-bold font-md mb-1">احم عقارك الان!</p>
+                <p class="m-0 text-xs text-secondary">بدون أي رسوم مسبقة</p>
+            </div>
+            <a href="#contact" class="btn btn-hero btn-lg cta-trigger text-center" style="margin: 0 auto; min-width: 250px;">
+                ابدأ رحلة الأمان الآن <i data-lucide="arrow-left" style="width:18px;margin-right:6px;"></i>
+            </a>
+        </div>
     </div>
 
     <!-- BACK TO TOP -->
@@ -809,8 +829,36 @@
         <i data-lucide="arrow-up"></i>
     </button>
 
+    <!-- LEAD CAPTURE MODAL -->
+    <div class="modal-overlay" id="leadModalOverlay">
+        <div class="modal-content glass-card glow-shadow text-center">
+            <button class="modal-close" id="closeModalBtn" aria-label="إغلاق">&times;</button>
+            <div class="modal-icon gradient-btn mx-auto mb-3" style="width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><i data-lucide="shield"></i></div>
+            <h3 class="font-lg mb-2">طلب حماية عقارية مجانية</h3>
+            <p class="text-secondary text-sm mb-4">أدخل بياناتك وسيقوم خبيرنا العقاري بالتواصل معك فوراً.</p>
+            <form id="modalForm" class="mx-auto" style="max-width: 300px;">
+                <div class="floating-group mb-3">
+                    <input type="text" id="modalName" required class="floating-input" placeholder=" ">
+                    <label for="modalName" class="floating-label">الاسم الكامل</label>
+                </div>
+                <div class="floating-group mb-4">
+                    <input type="tel" id="modalPhone" required class="floating-input number-font" placeholder=" " dir="ltr">
+                    <label for="modalPhone" class="floating-label">رقم الهاتف (الواتساب)</label>
+                </div>
+                <button type="button" id="modalSubmitBtn" class="btn btn-hero btn-full btn-lg hover-lift">
+                    أكد الطلب السريع <i data-lucide="arrow-left" style="width:18px;margin-right:6px;"></i>
+                </button>
+                <p class="text-xs text-secondary mt-3">
+                    <i data-lucide="lock" style="width:12px;height:12px;vertical-align:middle;display:inline;"></i> معلوماتك مشفرة ومحمية بالكامل
+                </p>
+            </form>
+        </div>
+    </div>
+
     <!-- TOAST -->
     <div id="toast" class="toast glass-card"></div>
+
+
 
     <script src="script.js"></script>
 </body>

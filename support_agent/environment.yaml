@@ -1,0 +1,6 @@
+name: support-agent-env
+description: Cloud environment for the support agent
+config:
+  type: cloud
+  networking:
+    type: unrestricted

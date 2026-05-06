@@ -164,6 +164,15 @@
     </style>
 </head>
 <body>
+    <!-- TRUST TOP BAR -->
+    <div class="trust-top-bar">
+        <div class="container trust-bar-flex">
+            <span><i data-lucide="check-circle" style="width:14px;height:14px;margin-left:4px;"></i> يعمل مع ملاك حقيقيين</span>
+            <span><i data-lucide="shield-check" style="width:14px;height:14px;margin-left:4px;"></i> حماية قانونية صارمة</span>
+            <span><i data-lucide="coins" style="width:14px;height:14px;margin-left:4px;"></i> بدون رسوم مسبقة</span>
+        </div>
+    </div>
+
     <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"></div>
 
@@ -173,36 +182,50 @@
             <a href="index.html" class="logo">
                 <img src="logo-nav.png" alt="أصولي | إدارة عقارية وحماية قانونية" class="logo-img" loading="lazy">
             </a>
+            
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html#what-we-offer" class="nav-link">خدماتنا</a>
                 <a href="lawyers.html" class="nav-link">شبكة المحامين</a>
                 <a href="partners.html" class="nav-link active">شركاؤنا</a>
                 <a href="index.html#pricing" class="nav-link">التسعير</a>
                 <a href="index.html#faq" class="nav-link">الأسئلة</a>
+                <a href="index.html#about" class="nav-link">من نحن</a>
                 <a href="legal.html" class="nav-link">الوثائق القانونية</a>
-                <div class="login-dropdown-wrapper">
-                    <button class="login-btn" id="login-btn-nav" aria-expanded="false">
-                        دخول المنصة <i data-lucide="user-circle" style="width: 18px; height: 18px;"></i>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle-btn" aria-label="تبديل المظهر">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
                     </button>
-                    <div class="login-dropdown" id="login-dropdown-menu">
-                        <a href="login.html#owner" class="login-dropdown-item">
-                            <div class="login-icon-box"><i data-lucide="building-2"></i></div>
-                            <div>
-                                <span class="login-drop-title">بوابة المُلّاك</span>
-                                <span class="login-drop-desc">إدارة عقاراتك وتقاريرك</span>
-                            </div>
-                        </a>
-                        <a href="login.html#tenant" class="login-dropdown-item">
-                            <div class="login-icon-box"><i data-lucide="key-round"></i></div>
-                            <div>
-                                <span class="login-drop-title">بوابة المستأجرين</span>
-                                <span class="login-drop-desc">دفع الإيجار وإشعاراتك</span>
-                            </div>
-                        </a>
+
+                    <div class="login-dropdown-wrapper">
+                        <button class="login-btn" id="login-btn-nav" aria-expanded="false">
+                            دخول المنصة <i data-lucide="user-circle" style="width: 18px; height: 18px;"></i>
+                        </button>
+                        <div class="login-dropdown" id="login-dropdown-menu">
+                            <a href="login.html#owner" class="login-dropdown-item glass-card">
+                                <div class="login-icon-box">
+                                    <i data-lucide="building-2"></i>
+                                </div>
+                                <div class="login-text-box">
+                                    <span class="login-drop-title">بوابة المُلّاك</span>
+                                    <span class="login-drop-desc">إدارة عقاراتك وتقاريرك</span>
+                                </div>
+                            </a>
+                            <a href="login.html#tenant" class="login-dropdown-item glass-card">
+                                <div class="login-icon-box">
+                                    <i data-lucide="key-round"></i>
+                                </div>
+                                <div class="login-text-box">
+                                    <span class="login-drop-title">بوابة المستأجرين</span>
+                                    <span class="login-drop-desc">دفع الإيجار وإشعاراتك</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <a href="index.html#contact" class="btn btn-primary nav-cta">ابدأ حماية عقارك</a>
             </div>
+            
             <button class="hamburger" id="hamburger" aria-label="القائمة">
                 <span></span><span></span><span></span>
             </button>
