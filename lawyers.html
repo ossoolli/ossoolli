@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,140 +19,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('ossoolli-theme');
+        if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); }
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
 
     <style>
-        /* ── PAGE HERO ── */
-        .page-hero {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6e 100%);
-            padding: 120px 24px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .page-hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image: radial-gradient(at 15% 40%, rgba(198,161,91,0.18) 0, transparent 55%),
-                              radial-gradient(at 85% 20%, rgba(255,255,255,0.04) 0, transparent 45%);
-            pointer-events: none;
-        }
-        .page-hero .badge { margin: 0 auto 20px; }
-        .page-hero h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-        .page-hero h1 span { color: var(--color-accent); }
-        .page-hero p {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.82);
-            max-width: 580px;
-            margin: 0 auto 32px;
-            line-height: 1.75;
-        }
-        .hero-stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-            padding-top: 36px;
-            border-top: 1px solid rgba(255,255,255,0.12);
-        }
+        .gov-card .gov-name { font-weight: 800; display: block; margin-bottom: 4px; }
+        .hero-stats-bar { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.12); }
         .hero-stat { text-align: center; }
-        .hero-stat-num {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--color-accent);
-            display: block;
-            font-family: 'Cairo', sans-serif;
-        }
-        .hero-stat-label {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.7);
-            margin-top: 4px;
-        }
-
-        /* ── TRUST STRIP ── */
-        .trust-strip {
-            background: var(--color-accent);
-            padding: 14px 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-        .trust-strip-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--color-primary);
-        }
-
-        /* ── HOW IT WORKS MINI ── */
-        .flow-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            counter-reset: steps;
-        }
-        @media (max-width: 768px) {
-            .flow-steps { grid-template-columns: 1fr; }
-            .page-hero { padding: 100px 16px 60px; }
-            .hero-stats-bar { gap: 24px; }
-            .trust-strip { gap: 16px; }
-        }
-        .flow-step {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: 28px 24px;
-            text-align: center;
-            position: relative;
-        }
-        .flow-step-num {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, var(--color-primary), #1a4a6e);
-            color: #fff;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin: 0 auto 16px;
-        }
-        .flow-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--color-primary); }
-        .flow-step p { font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.65; }
-
-        /* ── CTA BANNER ── */
-        .cta-banner {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6e 100%);
-            border-radius: var(--radius-lg);
-            padding: 48px 40px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-banner::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: radial-gradient(at 80% 50%, rgba(198,161,91,0.15), transparent 60%);
-            pointer-events: none;
-        }
-        .cta-banner h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 12px; }
-        .cta-banner p { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
-        @media (max-width: 600px) {
-            .cta-banner { padding: 36px 20px; }
-            .cta-banner h2 { font-size: 1.35rem; }
-        }
+        .hero-stat-num { font-size: 2.4rem; font-weight: 800; color: var(--gold); display: block; }
+        .hero-stat-label { font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+        .trust-strip { background: var(--gold); padding: 14px 24px; display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; color: var(--primary); }
+        .trust-strip-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 700; }
+        .filter-buttons { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .filter-btn { padding: 8px 16px; border-radius: 50px; background: var(--bg-card); border: 1px solid var(--border-color); font-weight: 700; cursor: pointer; transition: var(--transition); }
+        .filter-btn.active { background: var(--primary-light); color: #fff; border-color: var(--primary-light); }
     </style>
 </head>
 <body>
+    <div class="noise-overlay"></div>
     <!-- TRUST TOP BAR -->
     <div class="trust-top-bar">
         <div class="container trust-bar-flex">
@@ -262,74 +153,71 @@
         <!-- GOVERNORATE GRID -->
         <section id="lawyers-network" class="section reveal">
             <div class="container">
-                <div class="section-header center mb-4">
-                    <h2 class="section-title">خريطة التغطية الجغرافية</h2>
-                    <p class="section-subtitle">اضغط على أي محافظة لمعرفة تفاصيل التغطية</p>
+                <div class="filter-buttons" id="gov-filter">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="active">متاح حالياً</button>
+                    <button class="filter-btn" data-filter="soon">قريباً</button>
+                    <button class="filter-btn" data-filter="center">الوسط</button>
+                    <button class="filter-btn" data-filter="north">الشمال</button>
+                    <button class="filter-btn" data-filter="south">الجنوب</button>
                 </div>
 
-                <div class="governorate-grid">
+                <div class="governorate-grid" id="governorate-grid">
                     <!-- Active -->
-                    <div class="gov-card card">
+                    <!-- Active Center -->
+                    <div class="gov-card active center-region" data-region="center" data-status="active">
                         <span class="gov-name">عمان الكبرى</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">15+ مكتب معتمد</div>
                     </div>
-                    <div class="gov-card card">
+                    <div class="gov-card active north-region" data-region="north" data-status="active">
                         <span class="gov-name">إربد</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">8 مكاتب معتمدة</div>
                     </div>
-                    <div class="gov-card card">
+                    <div class="gov-card active center-region" data-region="center" data-status="active">
                         <span class="gov-name">الزرقاء</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">6 مكاتب معتمدة</div>
                     </div>
-                    <div class="gov-card card">
+                    <div class="gov-card active south-region" data-region="south" data-status="active">
                         <span class="gov-name">العقبة</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">4 مكاتب معتمدة</div>
                     </div>
-                    <div class="gov-card card">
+                    <div class="gov-card active center-region" data-region="center" data-status="active">
                         <span class="gov-name">السلط</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">3 مكاتب معتمدة</div>
                     </div>
-                    <div class="gov-card card">
+                    <div class="gov-card active center-region" data-region="center" data-status="active">
                         <span class="gov-name">مأدبا</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">مكتبان معتمدان</div>
                     </div>
-                    <div class="gov-card card">
+                    <div class="gov-card active south-region" data-region="south" data-status="active">
                         <span class="gov-name">الكرك</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">مكتبان معتمدان</div>
                     </div>
-                    <div class="gov-card card">
+                    <div class="gov-card active north-region" data-region="north" data-status="active">
                         <span class="gov-name">جرش</span>
                         <span class="gov-status"><span class="status-dot active"></span> متاح</span>
-                        <div class="tooltip">مكتب معتمد واحد</div>
                     </div>
-                    <!-- Coming Soon -->
-                    <div class="gov-card card soon">
+                    <!-- Soon -->
+                    <div class="gov-card soon north-region" data-region="north" data-status="soon">
                         <span class="gov-name">عجلون</span>
                         <span class="gov-status"><span class="status-dot soon"></span> قريباً</span>
                     </div>
-                    <div class="gov-card card soon">
+                    <div class="gov-card soon north-region" data-region="north" data-status="soon">
                         <span class="gov-name">المفرق</span>
                         <span class="gov-status"><span class="status-dot soon"></span> قريباً</span>
                     </div>
-                    <div class="gov-card card soon">
-                        <span class="gov-name">الطفيلة</span>
+                    <div class="gov-card soon south-region" data-region="south" data-status="soon">
+                        <span class="gov-name">الالطفيلة</span>
                         <span class="gov-status"><span class="status-dot soon"></span> قريباً</span>
                     </div>
-                    <div class="gov-card card soon">
+                    <div class="gov-card soon south-region" data-region="south" data-status="soon">
                         <span class="gov-name">معان</span>
                         <span class="gov-status"><span class="status-dot soon"></span> قريباً</span>
                     </div>
                 </div>
 
-                <div class="card p-4 mt-4 text-center" style="border: 1.5px solid var(--color-accent); background: rgba(198,161,91,0.04);">
-                    <i data-lucide="shield-check" style="color: var(--color-accent); width: 32px; height: 32px; margin-bottom: 12px;"></i>
+                <div class="card p-4 mt-4 text-center" style="border: 1.5px solid var(--gold); background: var(--glass-bg);">
+                    <i data-lucide="shield-check" style="color: var(--gold); width: 32px; height: 32px; margin-bottom: 12px;"></i>
                     <p class="fw-bold m-0">عند توقيع عقد إيجار، نوجّه مستأجرك تلقائياً لأقرب مكتب محاماة معتمد في شبكتنا لتوثيق العقد وإضفاء صفة التنفيذ القضائي الفوري عليه.</p>
                 </div>
             </div>
@@ -404,12 +292,12 @@
         <!-- CTA -->
         <section class="section reveal">
             <div class="container max-w-md center-block">
-                <div class="cta-banner">
-                    <i data-lucide="scale" style="width:48px;height:48px;color:var(--color-accent);margin-bottom:16px;"></i>
-                    <h2>ابدأ بحماية عقارك اليوم</h2>
+                <div class="cta-banner page-hero" style="border-radius: var(--radius-lg); padding: 48px 40px;">
+                    <i data-lucide="scale" style="width:48px;height:48px;color:var(--gold);margin-bottom:16px;"></i>
+                    <h2 class="mb-3">ابدأ بحماية عقارك اليوم</h2>
                     <p>اتصل بنا ونربطك بمحامٍ معتمد في محافظتك خلال 24 ساعة — بدون أي رسوم مقدمة.</p>
                     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-                        <a href="index.html#contact" class="btn btn-primary btn-lg">تواصل معنا الآن</a>
+                        <a href="index.html#contact" class="btn btn-hero btn-lg">تواصل معنا الآن</a>
                         <a href="https://wa.me/962780719787" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;" target="_blank" rel="noopener">💬 واتساب</a>
                     </div>
                 </div>
@@ -472,5 +360,39 @@
     <div id="toast" class="toast"></div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const govCards = document.querySelectorAll('.gov-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    govCards.forEach(card => {
+                        const status = card.getAttribute('data-status');
+                        const region = card.getAttribute('data-region');
+                        
+                        let show = false;
+                        if(filter === 'all') show = true;
+                        else if(filter === 'active' && status === 'active') show = true;
+                        else if(filter === 'soon' && status === 'soon') show = true;
+                        else if(filter === region) show = true;
+                        
+                        if(show) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeIn 0.4s forwards';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

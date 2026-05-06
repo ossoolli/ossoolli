@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Skill(update-config)",
-      "Skill(update-config:*)",
-      "Bash(grep -c \"^\\\\\\\\.[a-z]\" \"c:\\\\Users\\\\Administrator\\\\Downloads\\\\ossoolli-main \\(2\\)\\\\ossoolli\\\\style.css\")"
-    ]
-  }
-}

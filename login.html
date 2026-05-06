@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('ossoolli-theme');
+        if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); }
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     
     <style>
         body {
@@ -211,7 +220,11 @@
     </style>
 </head>
 <body>
-    <button id="theme-toggle" aria-label="Toggle dark mode" style="position:fixed;top:10px;right:10px;z-index:1000;background:none;border:none;font-size:1.5rem;cursor:pointer;">🌙</button>
+    <div class="noise-overlay"></div>
+    <button class="theme-toggle" id="theme-toggle-btn" aria-label="تبديل المظهر" style="position:fixed;top:16px;right:16px;z-index:1000;">
+        <i data-lucide="sun" class="sun-icon"></i>
+        <i data-lucide="moon" class="moon-icon"></i>
+    </button>
 
     <div class="login-container" id="login-container" data-state="owner">
         <div class="login-card" id="login-card" data-active="owner">
@@ -291,9 +304,9 @@
     </div>
 
     <script>
-        lucide.createIcons();
-        
         document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            
             const tabs = document.querySelectorAll('.login-tab');
             const container = document.getElementById('login-container');
             const card = document.getElementById('login-card');
@@ -301,15 +314,11 @@
             const tenantForm = document.getElementById('tenant-form');
             
             const switchTab = (tabName) => {
-                // Update tabs visually
                 tabs.forEach(t => t.classList.remove('active'));
                 document.querySelector(`.login-tab[data-tab="${tabName}"]`).classList.add('active');
-                
-                // Update styling accents
                 container.setAttribute('data-state', tabName);
                 card.setAttribute('data-active', tabName);
                 
-                // Show Correct Form
                 if (tabName === 'owner') {
                     ownerForm.classList.add('active');
                     tenantForm.classList.remove('active');
@@ -321,14 +330,12 @@
                 }
             };
             
-            // Check hash on load
             if (window.location.hash === '#tenant') {
                 switchTab('tenant');
             } else {
                 switchTab('owner');
             }
             
-            // Handle tab clicks
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const target = tab.getAttribute('data-tab');
@@ -336,7 +343,6 @@
                 });
             });
             
-            // Simple form prevention
             ownerForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 alert('سيعمل هذا الزر عند ربط المنصة بقاعدة البيانات');
@@ -352,5 +358,6 @@
             });
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

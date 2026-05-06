@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,151 +19,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('ossoolli-theme');
+        if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); }
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
 
     <style>
-        /* ── PAGE HERO ── */
-        .page-hero {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6e 100%);
-            padding: 120px 24px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .page-hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image: radial-gradient(at 80% 30%, rgba(198,161,91,0.18) 0, transparent 55%),
-                              radial-gradient(at 20% 70%, rgba(255,255,255,0.04) 0, transparent 45%);
-            pointer-events: none;
-        }
-        .page-hero .badge { display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
-        .page-hero h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-        .page-hero h1 span { color: var(--color-accent); }
-        .page-hero p {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.82);
-            max-width: 580px;
-            margin: 0 auto 32px;
-            line-height: 1.75;
-        }
-
-        /* ── PARTNER JOIN CARD ── */
-        .join-card {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a6e 100%);
-            border-radius: var(--radius-lg);
-            padding: 56px 48px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .join-card::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: radial-gradient(at 20% 50%, rgba(198,161,91,0.15), transparent 60%);
-            pointer-events: none;
-        }
-        .join-card h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 12px; }
-        .join-card p { font-size: 1rem; color: rgba(255,255,255,0.82); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .join-benefits {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            margin-bottom: 36px;
-        }
-        .join-benefit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-        .join-benefit-icon {
-            width: 52px; height: 52px;
-            background: rgba(198,161,91,0.2);
-            border: 1px solid rgba(198,161,91,0.4);
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--color-accent);
-        }
-        .join-benefit span {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.8);
-            font-weight: 600;
-        }
-
-        /* ── PARTNER CARD enhanced ── */
-        .partner-card-v2 {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: 36px 28px;
-            transition: var(--transition);
-            position: relative;
-        }
-        .partner-card-v2:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-            border-color: rgba(198,161,91,0.35);
-        }
-        .partner-card-v2.featured {
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 1px rgba(198,161,91,0.2);
-        }
-        .partner-card-v2 .partner-icon-v2 {
-            width: 64px; height: 64px;
-            background: rgba(198,161,91,0.08);
-            border: 1.5px solid rgba(198,161,91,0.2);
-            border-radius: 18px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--color-accent);
-            margin-bottom: 20px;
-        }
-        .partner-card-v2 h3 {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--color-primary);
-            margin-bottom: 8px;
-        }
-        .partner-card-v2 p {
-            font-size: 0.93rem;
-            color: var(--color-text-secondary);
-            line-height: 1.65;
-            margin-bottom: 20px;
-        }
-        .partner-logos-v2 {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .partner-logo-box {
-            height: 42px;
-            padding: 0 16px;
-            background: var(--color-bg-alt);
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--color-text-secondary);
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 768px) {
-            .page-hero { padding: 100px 16px 60px; }
-            .join-card { padding: 36px 20px; }
-            .join-card h2 { font-size: 1.4rem; }
-            .join-benefits { gap: 20px; }
-        }
+        /* Small unique overrides for partners page if any */
+        .partner-logos-v2 { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .partner-logo-box { padding: 4px 12px; background: var(--glass-bg); border-radius: 8px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--glass-border); }
+        .join-card { text-align: center; background: var(--gradient-hero); color: #fff; padding: 60px 40px; border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+        .join-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.1), transparent); }
+        .join-benefits { display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap; }
+        .join-benefit { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .join-benefit-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); }
     </style>
 </head>
 <body>
+    <div class="noise-overlay"></div>
     <!-- TRUST TOP BAR -->
     <div class="trust-top-bar">
         <div class="container trust-bar-flex">
@@ -235,12 +113,12 @@
 
     <!-- PAGE HERO -->
     <div class="page-hero">
-        <div class="badge">
-            <i data-lucide="handshake" style="width:14px;height:14px"></i> شركاؤنا الاستراتيجيون
+        <div class="badge glass-badge" style="margin-bottom: 20px;">
+            <i data-lucide="handshake" style="width:14px;height:14px;margin-left:6px;"></i> شركاؤنا الاستراتيجيون
         </div>
-        <h1>نعمل مع <span>الأفضل</span> لنقدم لك الأفضل</h1>
-        <p>شبكة شراكات متكاملة من أبرز مكاتب المحاماة وشركات التحويل المالي ووسطاء العقارات في الأردن — لأن قوة الشبكة تعني قوة الحماية لعقارك.</p>
-        <a href="index.html#contact" class="btn btn-primary btn-lg">تواصل معنا</a>
+        <h1 class="hero-title">نعمل مع <span>الأفضل</span> لنقدم لك الأفضل</h1>
+        <p class="hero-subtitle">شبكة شراكات متكاملة من أبرز مكاتب المحاماة وشركات التحويل المالي ووسطاء العقارات في الأردن — لأن قوة الشبكة تعني قوة الحماية لعقارك.</p>
+        <a href="index.html#contact" class="btn btn-hero btn-lg hover-lift">تواصل معنا</a>
     </div>
 
     <main id="main-content">
@@ -324,9 +202,9 @@
         <!-- JOIN CTA -->
         <section class="section reveal">
             <div class="container max-w-md center-block">
-                <div class="join-card">
-                    <i data-lucide="handshake" style="width:52px;height:52px;color:var(--color-accent);margin-bottom:20px;"></i>
-                    <h2>هل أنت مكتب محاماة أو وسيط عقاري؟</h2>
+                <div class="join-card glow-shadow">
+                    <i data-lucide="handshake" style="width:52px;height:52px;color:var(--gold);margin-bottom:20px;"></i>
+                    <h2 class="mb-3">هل أنت مكتب محاماة أو وسيط عقاري؟</h2>
                     <p>انضم لشبكتنا المتنامية واحصل على عملاء جدد ودخل إضافي مستمر بدون تكاليف تسويقية.</p>
                     <div class="join-benefits">
                         <div class="join-benefit">
@@ -342,7 +220,7 @@
                             <span>دعم كامل</span>
                         </div>
                     </div>
-                    <a href="index.html#contact" class="btn btn-primary btn-lg">تقدّم للانضمام الآن</a>
+                    <a href="#contact" class="btn btn-hero btn-lg cta-trigger">تقدّم للانضمام الآن</a>
                 </div>
             </div>
         </section>

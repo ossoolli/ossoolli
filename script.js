@@ -229,6 +229,9 @@ const initContactForm = () => {
             if(supabase) {
                 const { error } = await supabase.from('leads').insert([formData]);
                 if (error) throw error;
+            } else {
+                // Mock success for demonstration if Supabase is not ready
+                console.log("Mock lead saved:", formData);
             }
             
             showToast('تم استلام طلبك بنجاح! سيتواصل معك فريق أصولي قريباً.');
@@ -277,7 +280,7 @@ const initParticles = () => {
 const initIntersectionEffects = () => {
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     
-    const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger');
     if('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -297,7 +300,7 @@ const initIntersectionEffects = () => {
         revealElements.forEach(el => el.classList.add('visible'));
     }
     
-    const countElements = document.querySelectorAll('.stat-number');
+    const countElements = document.querySelectorAll('.stat-number, .counter-anim');
     if('IntersectionObserver' in window) {
         const countObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -570,16 +573,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if(modalSubmit) {
-            modalSubmit.addEventListener('click', () => {
+            modalSubmit.addEventListener('click', async () => {
                 const name = document.getElementById('modalName').value;
                 const phone = document.getElementById('modalPhone').value;
+                
                 if(name && phone) {
-                    closeModal();
-                    if(typeof showToast === 'function') {
+                    const originalText = modalSubmit.innerHTML;
+                    modalSubmit.innerHTML = 'جاري الحفظ...';
+                    modalSubmit.disabled = true;
+
+                    const formData = { name, phone, source: 'lead_modal' };
+
+                    try {
+                        if(supabase) {
+                            await supabase.from('leads').insert([formData]);
+                        } else {
+                            console.log("Mock lead saved (modal):", formData);
+                        }
+                        closeModal();
                         showToast('تم استلام طلبك! وسنتواصل معك لتأكيد الاستشارة.', 'success');
+                        document.getElementById('modalName').value = '';
+                        document.getElementById('modalPhone').value = '';
+                    } catch (e) {
+                        showToast('خطأ فني بسيط، يرجى المحاولة لاحقاً', 'error');
+                    } finally {
+                        modalSubmit.innerHTML = originalText;
+                        modalSubmit.disabled = false;
                     }
-                    document.getElementById('modalName').value = '';
-                    document.getElementById('modalPhone').value = '';
                 } else {
                     const group = document.getElementById('modalPhone').parentElement;
                     group.classList.add('has-error');
