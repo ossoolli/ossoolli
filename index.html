@@ -58,14 +58,6 @@
 </head>
 <body>
     <div class="noise-overlay"></div>
-    <!-- TRUST TOP BAR -->
-    <div class="trust-top-bar">
-        <div class="container trust-bar-flex">
-            <span><i data-lucide="check-circle" style="width:14px;height:14px;margin-left:4px;"></i> يعمل مع ملاك حقيقيين</span>
-            <span><i data-lucide="shield-check" style="width:14px;height:14px;margin-left:4px;"></i> حماية قانونية صارمة</span>
-            <span><i data-lucide="coins" style="width:14px;height:14px;margin-left:4px;"></i> بدون رسوم مسبقة</span>
-        </div>
-    </div>
 
     <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"></div>
@@ -257,57 +249,42 @@
                 <p class="section-subtitle max-w-md center-block">من لحظة اختيار المستأجر حتى إدارة الإيجار والحماية القانونية الكاملة</p>
             </div>
 
-            <div class="horizontal-timeline-container">
-                <div class="timeline-line"></div>
-                <div class="timeline-steps">
-                    <!-- Step 1 -->
-                    <div class="timeline-step-item reveal-stagger">
-                        <div class="step-circle gradient-btn">1</div>
-                        <div class="step-content glass-card">
-                            <h3>استلام بيانات العقار</h3>
-                            <p>بعد تواصلك معنا، نقوم باستلام بيانات العقار وتوقيع تفويض الإدارة للبدء فوراً.</p>
-                        </div>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="timeline-step-item reveal-stagger">
-                        <div class="step-circle gradient-btn">2</div>
-                        <div class="step-content glass-card">
-                            <h3>التدقيق وصياغة العقود</h3>
-                            <p>نقوم بتنظيم العقود القانونية مع المستأجرين لضمان عدم وجود ثغرات تضر بملكيتك.</p>
-                        </div>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="timeline-step-item reveal-stagger gold-step">
-                        <div class="step-circle gradient-gold glow">3</div>
-                        <div class="step-content glass-card gold-border">
-                            <h3>التوقيع عبر شبكة المحامين</h3>
-                            <p>نوجّه المستأجر لأقرب مكتب محاماة معتمد لتوقيع عقد قانوني محكم وقابل للتنفيذ الفوري.</p>
-                        </div>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="timeline-step-item reveal-stagger">
-                        <div class="step-circle gradient-btn">4</div>
-                        <div class="step-content glass-card">
-                            <h3>بدء التحصيل الشهري</h3>
-                            <p>نتابع المستأجرين ونجبي الإيجارات الشهرية في موعدها لنودعها في حسابك مباشرة وبانتظام.</p>
-                        </div>
-                    </div>
-                    <!-- Step 5 -->
-                    <div class="timeline-step-item reveal-stagger">
-                        <div class="step-circle gradient-btn">5</div>
-                        <div class="step-content glass-card">
-                            <h3>إدارة شاملة بدون تدخل</h3>
-                            <p>تحصيل الإيجار الشهري، متابعة الفواتير والخدمات، وتقديم تقارير دورية شفافة لك.</p>
-                        </div>
-                    </div>
-                    <!-- Step 6 -->
-                    <div class="timeline-step-item reveal-stagger gold-step">
-                        <div class="step-circle gradient-gold glow">6</div>
-                        <div class="step-content glass-card gold-border">
-                            <h3>حماية قانونية فورية عند التقصير</h3>
-                            <p>رفع دعوى الإخلاء فوراً والمطالبة المالية قانونياً، وأصولي تتحمل أتعاب المحاماة والرسوم.</p>
-                        </div>
-                    </div>
+            <div class="process-grid grid-3 mt-5">
+                <!-- Step 1 -->
+                <div class="process-card glass-card hover-lift">
+                    <div class="process-icon">1</div>
+                    <h3>استلام بيانات العقار</h3>
+                    <p>بعد تواصلك معنا، نقوم باستلام بيانات العقار وتوقيع تفويض الإدارة للبدء فوراً.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="process-card glass-card hover-lift">
+                    <div class="process-icon">2</div>
+                    <h3>التدقيق وصياغة العقود</h3>
+                    <p>نقوم بتنظيم العقود القانونية مع المستأجرين لضمان عدم وجود ثغرات تضر بملكيتك.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="process-card glass-card gold-border hover-lift">
+                    <div class="process-icon gold icon-glow">3</div>
+                    <h3>التوقيع عبر المحامين</h3>
+                    <p>نوجّه المستأجر لأقرب مكتب محاماة معتمد لتوقيع عقد قانوني محكم للتنفيذ الفوري.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="process-card glass-card hover-lift">
+                    <div class="process-icon">4</div>
+                    <h3>بدء التحصيل الشهري</h3>
+                    <p>نتابع المستأجرين ونجبي الإيجارات الشهرية في موعدها لنودعها في حسابك مباشرة.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="process-card glass-card hover-lift">
+                    <div class="process-icon">5</div>
+                    <h3>إدارة شاملة بدون تدخل</h3>
+                    <p>تحصيل الإيجار، متابعة الفواتير والخدمات، وتقديم تقارير دورية شفافة لك.</p>
+                </div>
+                <!-- Step 6 -->
+                <div class="process-card glass-card gold-border hover-lift">
+                    <div class="process-icon gold icon-glow">6</div>
+                    <h3>حماية قانونية فورية</h3>
+                    <p>رفع دعوى الإخلاء فوراً والمطالبة المالية قانونياً، نتحمل أتعاب المحاماة والرسوم.</p>
                 </div>
             </div>
         </div>
@@ -355,30 +332,31 @@
                 <h2 class="section-title">ماذا لو تأخر المستأجر؟</h2>
             </div>
             
-            <div class="legal-progress-container glass-card p-4">
-                <div class="legal-progress-track">
-                    <div class="legal-progress-fill" id="legal-progress-fill"></div>
-                    
-                    <div class="progress-point state-orange">
-                        <div class="point-circle"></div>
-                        <div class="point-label">يوم 1<br><span>تنبيه فوري</span></div>
-                    </div>
-                    <div class="progress-point state-orange">
-                         <div class="point-circle"></div>
-                         <div class="point-label">5 أيام<br><span>إشعار رسمي</span></div>
-                    </div>
-                    <div class="progress-point state-red">
-                         <div class="point-circle"></div>
-                         <div class="point-label">15 يوم<br><span>إنذار عدلي</span></div>
-                    </div>
-                    <div class="progress-point state-red">
-                         <div class="point-circle"></div>
-                         <div class="point-label">30 يوم<br><span>رفع دعوى</span></div>
-                    </div>
-                    <div class="progress-point state-green">
-                         <div class="point-circle"><i data-lucide="check" style="color:white;width:12px;"></i></div>
-                         <div class="point-label">✓<br><span>استعادة العقار</span></div>
-                    </div>
+            <div class="bento-grid mt-4">
+                <div class="bento-card bento-small glass-card danger-border">
+                     <i data-lucide="alert-triangle" class="bento-icon text-danger"></i>
+                     <h3 class="text-danger flex-align">يوم 1<span>تنبيه فوري</span></h3>
+                     <p>إشعار المستأجر المباشر عن التأخير كخطوة أولى.</p>
+                </div>
+                <div class="bento-card bento-small glass-card danger-border">
+                     <i data-lucide="mail-warning" class="bento-icon text-danger"></i>
+                     <h3 class="text-danger flex-align">5 أيام<span>إشعار رسمي</span></h3>
+                     <p>رفع وتيرة التنبيه لإشعار جاد ونهائي.</p>
+                </div>
+                <div class="bento-card bento-small glass-card danger-border">
+                     <i data-lucide="scale" class="bento-icon text-danger"></i>
+                     <h3 class="text-danger flex-align">15 يوم<span>إنذار عدلي</span></h3>
+                     <p>تحويل المعاملة للفريق القانوني والإنذار العدلي.</p>
+                </div>
+                <div class="bento-card bento-small glass-card danger-border">
+                     <i data-lucide="gavel" class="bento-icon text-danger"></i>
+                     <h3 class="text-danger flex-align">30 يوم<span>رفع دعوى</span></h3>
+                     <p>مباشرة الإخلاء الفوري عن طريق المحكمة.</p>
+                </div>
+                <div class="bento-card bento-large bento-green glass-card hover-tilt" style="grid-column: 1 / -1; align-items: center; text-align: center; justify-content: center; padding: 24px;">
+                     <i data-lucide="badge-check" class="bento-icon text-success" style="margin: 0 auto 12px; height:48px; width:48px;"></i>
+                     <h3 class="text-success" style="font-size: 2rem;">✓ نتحمل كافة التكاليف</h3>
+                     <p class="text-lg">نجنّبك أي دفعات مالية طيلة فترة استعادة العقار والمطالبة بالإيجار، وأتعاب التقاضي علينا بالكامل.</p>
                 </div>
             </div>
             
