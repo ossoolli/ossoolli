@@ -40,7 +40,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     
     <!-- Inline script to prevent FOUC for dark mode -->
     <script>
@@ -137,34 +137,24 @@
                     <a href="index.html#contact" class="btn btn-hero btn-lg w-100-mobile hover-lift cta-trigger">ابدأ حماية عقارك الآن</a>
                 </div>
 
-                <!-- STATS COUNTERS -->
-                <div class="hero-stats mt-5 countup-section flex-align" style="gap:30px;">
-                    <div class="hero-stat-item">
-                        <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
-                        <span class="stat-label text-sm fw-bold d-block mt-1">عقد مُدار</span>
+                <!-- TRUST BADGES -->
+                <div class="hero-trust mt-5 flex-align" style="gap:15px; flex-wrap: wrap;">
+                    <div class="trust-pill badge glass-badge" style="padding: 8px 16px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-secondary);">
+                        <i data-lucide="check-circle-2" style="width:16px; height:16px; color:var(--success); margin-left:5px;"></i> صفر الدفعات المسبقة
                     </div>
-                    <div class="hero-stat-item">
-                        <span class="stat-plus">%</span><span class="stat-number" data-target="0">0</span>
-                        <span class="stat-label text-sm fw-bold d-block mt-1">رسوم مقدمة</span>
+                    <div class="trust-pill badge glass-badge" style="padding: 8px 16px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-secondary);">
+                        <i data-lucide="check-circle-2" style="width:16px; height:16px; color:var(--success); margin-left:5px;"></i> استشارات قانونية مجانية
+                    </div>
+                    <div class="trust-pill badge glass-badge" style="padding: 8px 16px; font-weight: 600; border: 1px solid var(--border-color); color: var(--text-secondary);">
+                        <i data-lucide="check-circle-2" style="width:16px; height:16px; color:var(--success); margin-left:5px;"></i> شبكة محامين متكاملة
                     </div>
                 </div>
 
             </div>
             
-            <!-- Hero Visual hidden/adjusted via CSS -->
+            <!-- Hero Visual -->
             <div class="hero-visual reveal" data-delay="100">
-                 <!-- The visual is now heavily stylized in CSS with glows, or we keep a simplified SVG here -->
-                 <div class="hero-dashboard-mockup glass-card glow-shadow">
-                     <div class="mockup-header">
-                         <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
-                         <div class="title-mockup">منصة أصولي للإدارة</div>
-                     </div>
-                     <div class="mockup-body">
-                         <div class="mockup-line w-80"></div>
-                         <div class="mockup-line w-60"></div>
-                         <div class="mockup-box w-100 mt-2 p-2" style="background:var(--success);color:#fff;border-radius:4px;text-align:center;">تم التحصيل بنجاح</div>
-                     </div>
-                 </div>
+                 <img src="hero_illustration.png" alt="أصولي لحماية العقارات" class="hero-img glow-shadow" style="width: 100%; border-radius: 20px; object-fit: cover;">
             </div>
         </div>
 
@@ -173,41 +163,71 @@
     </header>
     <main id="main-content">
 
-    <!-- PAIN AGITATION - Bento Grid -->
-    <section id="pain" class="section reveal pt-0 pb-0">
-        <div class="container">
+    <!-- PAIN AGITATION - Premium Layout -->
+    <section id="pain" class="section reveal pt-0 pb-0 mt-5" style="position: relative; overflow: hidden;">
+        <!-- Animated Drain/Fire Effect at the bottom -->
+        <div class="drain-fire-effect">
+            <div class="fire-glow"></div>
+            <div class="embers"></div>
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
             <div class="section-header center mb-5">
-                <div class="badge danger-badge glass-badge">واقع مؤلم</div>
-                <h2 class="section-title">كم مرة تأخر عليك مستأجر؟</h2>
-                <p class="section-subtitle">مشاكل متكررة تواجه مئات الملاك يومياً</p>
+                <div class="badge danger-badge glass-badge" style="border-color: rgba(220, 38, 38, 0.4); color: var(--danger);"><i data-lucide="alert-triangle" style="width: 16px; margin-left: 5px;"></i> استنزاف حقيقي وملموس</div>
+                <h2 class="section-title">الإدارة الذاتية للعقار مجرد كابوس بطيء</h2>
+                <p class="section-subtitle">لا تدع تأخير الإيجار يدمر تدفقك المالي</p>
             </div>
             
-            <div class="bento-grid mb-4">
-                <div class="bento-card bento-large bento-red glass-card hover-tilt">
-                    <div class="bento-number text-danger">×3</div>
-                    <i data-lucide="hourglass" class="bento-icon"></i>
-                    <h3>تأخير مستمر</h3>
-                    <p>مماطلة وتأخير يجعل تخطيطك المالي مستحيلاً.</p>
+            <div class="pain-dashboard glass-card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: rgba(220, 38, 38, 0.02); border: 1px solid rgba(220, 38, 38, 0.1);">
+                <div class="pain-col" style="padding: 30px;">
+                    <div class="pain-item flex-align mb-4 hover-lift" style="background: var(--bg); padding: 20px; border-radius: var(--radius-md); border-right: 4px solid var(--danger);">
+                        <div style="background: rgba(220,38,38,0.1); padding: 15px; border-radius: 50%; color: var(--danger);"><i data-lucide="calendar-x" style="width: 28px; height: 28px;"></i></div>
+                        <div>
+                            <h3 class="m-0 mb-1" style="font-size: 1.2rem;">تأخير شهري متكرر</h3>
+                            <p class="text-secondary m-0 text-sm">مماطلة وأعذار ترهقك نفسياً وتوقف التزاماتك وخططك المالية.</p>
+                        </div>
+                    </div>
+                    <div class="pain-item flex-align hover-lift mb-4" style="background: var(--bg); padding: 20px; border-radius: var(--radius-md); border-right: 4px solid var(--warning);">
+                        <div style="background: rgba(217,119,6,0.1); padding: 15px; border-radius: 50%; color: var(--warning);"><i data-lucide="phone-off" style="width: 28px; height: 28px;"></i></div>
+                        <div>
+                            <h3 class="m-0 mb-1" style="font-size: 1.2rem;">تهرب ومماطلة</h3>
+                            <p class="text-secondary m-0 text-sm">مكالمات لا يُرد عليها، ورسائل يتم تجاهلها ببرود تام.</p>
+                        </div>
+                    </div>
+                    <div class="pain-item flex-align hover-lift" style="background: var(--bg); padding: 20px; border-radius: var(--radius-md); border-right: 4px solid var(--danger);">
+                        <div style="background: rgba(220,38,38,0.1); padding: 15px; border-radius: 50%; color: var(--danger);"><i data-lucide="scale" style="width: 28px; height: 28px;"></i></div>
+                        <div>
+                            <h3 class="m-0 mb-1" style="font-size: 1.2rem;">أروقة المحاكم المكلفة</h3>
+                            <p class="text-secondary m-0 text-sm">عقود بدائية تكلّفك أشهر من الانتظار وآلاف الدنانير للمحامين.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="bento-card bento-small bento-orange glass-card hover-tilt">
-                    <i data-lucide="message-square-dashed" class="bento-icon"></i>
-                    <h3>أعذار متكررة</h3>
-                    <p>استنزاف لطاقتك في مطالبات شهرية ومواجهات مباشرة.</p>
-                </div>
-                
-                <div class="bento-card bento-small bento-purple glass-card hover-tilt">
-                    <i data-lucide="banknote" class="bento-icon"></i>
-                    <h3>خسارة دخل</h3>
-                    <p>فواتير غير مدفوعة وأشهر من الإيجار الضائع دون تعويض.</p>
-                </div>
-                
-                <div class="bento-card bento-large bento-blue glass-card hover-tilt">
-                    <i data-lucide="scale" class="bento-icon bento-icon-large scale-icon"></i>
-                    <h3>قضايا طويلة</h3>
-                    <p>إذا قررت اللجوء للقضاء، ستدفع رسوم وتنتظر شهوراً طويلة.</p>
+                <div class="pain-visual flex-center" style="padding: 30px; position: relative;">
+                    <div style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(220,38,38,0.1) 0%, transparent 70%);"></div>
+                    <div class="glass-card" style="width: 100%; max-width: 350px; border-color: rgba(220, 38, 38, 0.3); box-shadow: 0 10px 40px rgba(220,38,38,0.15); z-index: 2; overflow: hidden;">
+                        <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: bold;"><i data-lucide="building" style="width:16px; vertical-align:middle; margin-left:4px;"></i> المحفظة #2</span>
+                            <span class="badge text-danger" style="background: rgba(220,38,38,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">متأخر (90 يوم)</span>
+                        </div>
+                        <div style="padding: 30px 20px; text-align: center;">
+                            <div class="text-secondary text-sm mb-2">استنزاف العائد الاستثماري</div>
+                            <div class="font-display text-danger" style="font-size: 3rem; font-weight: bold; line-height: 1;" dir="ltr">- JOD 1,800</div>
+                            <div style="width: 100%; height: 6px; background: var(--bg); border-radius: 3px; margin-top: 25px; position: relative; overflow: hidden;">
+                                <div style="position: absolute; top:0; right:0; height: 100%; width: 100%; background: var(--danger); animation: pulseDanger 2s infinite;"></div>
+                            </div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(220,38,38,0.05); color: var(--danger); font-size: 0.85rem; text-align: center; border-top: 1px solid rgba(220,38,38,0.1);">
+                            <i data-lucide="trending-down" style="width: 16px; height: 16px; vertical-align: middle;"></i> العقار يخسر قيمته مع كل يوم انتظار
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <style>
+                @keyframes pulseDanger { 0% { opacity: 0.4; } 50% { opacity: 1; box-shadow: 0 0 15px var(--danger); } 100% { opacity: 0.4; } }
+                @media (max-width: 768px) { .pain-dashboard { grid-template-columns: 1fr !important; } .pain-col, .pain-visual { padding: 15px; } }
+            </style>
+        </div>
 
         </div>
     </section>
@@ -324,47 +344,97 @@
         </div>
     </section>
 
-    <!-- NON-PAYMENT (Progress Bar) -->
+    <!-- NON-PAYMENT (Legal Escalation Path) -->
     <section id="nonpayment" class="section bg-card reveal pb-5">
         <div class="container">
             <div class="section-header center mb-5">
-                <div class="badge glass-badge text-danger">المسار القانوني</div>
-                <h2 class="section-title">ماذا لو تأخر المستأجر؟</h2>
+                <div class="badge glass-badge text-danger" style="border-color: rgba(220, 38, 38, 0.4);"><i data-lucide="gavel" style="width: 14px; margin-left: 4px; vertical-align: middle;"></i> المسار القانوني الصارم</div>
+                <h2 class="section-title">محطة القطار الأخيرة للتأخير</h2>
+                <p class="section-subtitle">هكذا نتدرج في التصعيد لضمان حقوقك وحماية استثمارك بأسرع وقت</p>
             </div>
             
-            <div class="bento-grid mt-4">
-                <div class="bento-card bento-small glass-card danger-border">
-                     <i data-lucide="alert-triangle" class="bento-icon text-danger"></i>
-                     <h3 class="text-danger flex-align">يوم 1<span>تنبيه فوري</span></h3>
-                     <p>إشعار المستأجر المباشر عن التأخير كخطوة أولى.</p>
+            <div class="legal-timeline mt-5">
+                <!-- Step 1 -->
+                <div class="timeline-step">
+                    <div class="timeline-icon pulse-orange">
+                        <i data-lucide="bell-ring"></i>
+                    </div>
+                    <div class="timeline-content glass-card">
+                        <span class="day-badge">اليوم 1 - 4</span>
+                        <h3>الإشعار الفوري الودي</h3>
+                        <p class="text-secondary mb-0">بمجرد تأخر الدفعة، يتم إرسال إشعارات رسائلية واتصالات ومتابعة حثيثة من فريقنا للمستأجر للدفع الفوري.</p>
+                    </div>
                 </div>
-                <div class="bento-card bento-small glass-card danger-border">
-                     <i data-lucide="mail-warning" class="bento-icon text-danger"></i>
-                     <h3 class="text-danger flex-align">5 أيام<span>إشعار رسمي</span></h3>
-                     <p>رفع وتيرة التنبيه لإشعار جاد ونهائي.</p>
+                
+                <!-- Step 2 -->
+                <div class="timeline-step">
+                    <div class="timeline-icon pulse-warning">
+                        <i data-lucide="mail-warning"></i>
+                    </div>
+                    <div class="timeline-content glass-card">
+                        <span class="day-badge">اليوم 5 - 14</span>
+                        <h3>الإنذار الحضوري الرسمي</h3>
+                        <p class="text-secondary mb-0">رفع مستوى التنبيه لإنذار نهائي شديد اللهجة لإعلام المستأجر ببدء تجهيز الإجراءات القانونية وفقدانه للفرص الودية.</p>
+                    </div>
                 </div>
-                <div class="bento-card bento-small glass-card danger-border">
-                     <i data-lucide="scale" class="bento-icon text-danger"></i>
-                     <h3 class="text-danger flex-align">15 يوم<span>إنذار عدلي</span></h3>
-                     <p>تحويل المعاملة للفريق القانوني والإنذار العدلي.</p>
+                
+                <!-- Step 3 -->
+                <div class="timeline-step">
+                    <div class="timeline-icon pulse-danger">
+                        <i data-lucide="scale"></i>
+                    </div>
+                    <div class="timeline-content glass-card border-danger">
+                        <span class="day-badge danger-day">اليوم 15</span>
+                        <h3 class="text-danger">الإنذار العدلي الموثق</h3>
+                        <p class="text-secondary mb-0">تحويل الملف لدائرتنا القانونية وإصدار إنذار عدلي عبر كاتب العدل يشكل سنداً تنفيذياً قطعياً أمام القضاء.</p>
+                    </div>
                 </div>
-                <div class="bento-card bento-small glass-card danger-border">
-                     <i data-lucide="gavel" class="bento-icon text-danger"></i>
-                     <h3 class="text-danger flex-align">30 يوم<span>رفع دعوى</span></h3>
-                     <p>مباشرة الإخلاء الفوري عن طريق المحكمة.</p>
-                </div>
-                <div class="bento-card bento-large bento-green glass-card hover-tilt" style="grid-column: 1 / -1; align-items: center; text-align: center; justify-content: center; padding: 24px;">
-                     <i data-lucide="badge-check" class="bento-icon text-success" style="margin: 0 auto 12px; height:48px; width:48px;"></i>
-                     <h3 class="text-success" style="font-size: 2rem;">✓ نتحمل كافة التكاليف</h3>
-                     <p class="text-lg">نجنّبك أي دفعات مالية طيلة فترة استعادة العقار والمطالبة بالإيجار، وأتعاب التقاضي علينا بالكامل.</p>
+                
+                <!-- Step 4 -->
+                <div class="timeline-step">
+                    <div class="timeline-icon solid-danger">
+                        <i data-lucide="gavel"></i>
+                    </div>
+                    <div class="timeline-content glass-card border-danger glow-danger">
+                        <span class="day-badge danger-day" style="background:var(--danger); color:white;">اليوم 30</span>
+                        <h3 class="text-danger">تفعيل دعوى الإخلاء</h3>
+                        <p class="text-secondary mb-0">مباشرة القضية أمام المحاكم المختصة للطرد الإجباري ووضع إشارة الحجز والمطالبات المالية بقيمة الإيجار المتأخر.</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="alert-box danger-box mt-5 text-center max-w-md center-block">
-                لا تنتظر حتى يتراكم التأخر — كل يوم له تكلفة
+            <div class="guarantee-banner mt-5 glass-card flex-align center-block max-w-lg hover-lift" style="background: rgba(22, 163, 74, 0.05); border-color: rgba(22, 163, 74, 0.3); padding: 30px;">
+                <div class="icon-glow" style="background: var(--success); padding: 18px; border-radius: 50%; color: white; display: flex; flex-shrink: 0;"><i data-lucide="shield-check" style="width: 38px; height: 38px;"></i></div>
+                <div>
+                     <h3 class="text-success m-0 mb-2" style="font-size: 1.6rem;">ضمان وحماية مالية 100%</h3>
+                     <p class="m-0 text-secondary text-sm line-height-lg">نتحمل رسوم توجيه الإنذار العدلي، ورسوم قضايا المحاكم، وأتعاب المحاماة بالكامل وفق شروط وثيقة العمل. نحن نخوض المعركة القانونية نيابة عنك لتستعيد حقك دون أن تدفع قرشاً واحداً إضافياً!</p>
+                </div>
             </div>
-            <p class="text-center text-secondary mt-3 text-sm">التكاليف القانونية وأتعاب المحاماة مغطاة بالكامل بناء على شروط الشركة.</p>
         </div>
+        
+        <style>
+            .legal-timeline { display: flex; flex-direction: column; gap: 30px; position: relative; max-width: 800px; margin: 0 auto; }
+            [dir="rtl"] .legal-timeline::before { content: ''; position: absolute; right: 32px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--border-color) 0%, var(--danger) 100%); }
+            .timeline-step { display: flex; gap: 35px; position: relative; z-index: 1; }
+            .timeline-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg); border: 2px solid var(--border-color); color: var(--text-secondary); flex-shrink: 0; transition: var(--transition); z-index: 2;}
+            .pulse-orange { border-color: var(--warning); color: var(--warning); box-shadow: 0 0 15px rgba(217, 119, 6, 0.2); }
+            .pulse-warning { border-color: #f97316; color: #f97316; box-shadow: 0 0 15px rgba(249, 115, 22, 0.3); }
+            .pulse-danger { border-color: var(--danger); color: var(--danger); box-shadow: 0 0 20px rgba(220, 38, 38, 0.4); }
+            .solid-danger { background: var(--danger); border-color: var(--danger); color: white; box-shadow: 0 0 25px rgba(220, 38, 38, 0.6); }
+            .timeline-content { flex: 1; padding: 30px; border-radius: var(--radius-md); transition: var(--transition); }
+            .timeline-content:hover { transform: translateX(-5px); box-shadow: var(--shadow-hover); }
+            .day-badge { display: inline-block; padding: 6px 16px; border-radius: 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; }
+            .danger-day { background: rgba(220, 38, 38, 0.1); border-color: rgba(220, 38, 38, 0.3); color: var(--danger); }
+            .border-danger { border-color: rgba(220, 38, 38, 0.3); }
+            .glow-danger { background: linear-gradient(145deg, rgba(220,38,38,0.05), transparent); }
+            @media (max-width: 768px) {
+                [dir="rtl"] .legal-timeline::before { right: 24px; }
+                .timeline-icon { width: 48px; height: 48px; }
+                .timeline-step { gap: 20px; }
+                .timeline-content { padding: 20px; }
+                .guarantee-banner { flex-direction: column; text-align: center; }
+            }
+        </style>
     </section>
 
     <!-- COMPARE SECTION -->
