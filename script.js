@@ -147,21 +147,6 @@ const showToast = (message, type = 'success') => {
     }, 4000);
 };
 
-let supabase = null;
-const initSupabase = () => {
-    // Hidden Keys for graceful degradation if they fail
-    const SUPABASE_URL = 'YOUR_URL';
-    const SUPABASE_KEY = 'YOUR_KEY';
-    
-    try {
-        if(window.supabase) {
-            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        }
-    } catch (e) {
-        console.warn("Supabase integration disabled. Running in standalone mode.");
-    }
-};
-
 const initFAQ = () => {
     const accHeaders = document.querySelectorAll('.accordion-header');
     
@@ -209,12 +194,12 @@ const initContactForm = () => {
     const form = document.getElementById('contactForm');
     if(!form) return;
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
         
         const btn = document.getElementById('submitBtn');
         const originalText = btn.innerHTML;
-        btn.innerHTML = `<span class="btn-text">جاري الإرسال...</span> <div style="display:inline-block;width:16px;height:16px;border:2px solid;border-radius:50%;border-top-color:transparent;animation:spin 1s linear infinite;"></div>`;
+        btn.innerHTML = `<span class="btn-text">جاري فتح واتساب...</span> <div style="display:inline-block;width:16px;height:16px;border:2px solid;border-radius:50%;border-top-color:transparent;animation:spin 1s linear infinite;"></div>`;
         btn.disabled = true;
 
         const formData = {
@@ -225,24 +210,19 @@ const initContactForm = () => {
             notes: document.getElementById('notes').value
         };
 
-        try {
-            if(supabase) {
-                const { error } = await supabase.from('leads').insert([formData]);
-                if (error) throw error;
-            } else {
-                // Mock success for demonstration if Supabase is not ready
-                console.log("Mock lead saved:", formData);
-            }
-            
-            showToast('تم استلام طلبك بنجاح! سيتواصل معك فريق أصولي قريباً.');
-            form.reset();
-        } catch (error) {
-            console.error('Error:', error);
-            showToast('حدث خطأ أثناء الإرسال. يرجى إعادة المحاولة.', 'error');
-        } finally {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        }
+        const message = [
+            'مرحباً أصولي، أود طلب استشارة أولية.',
+            `الاسم: ${formData.name}`,
+            `الهاتف: ${formData.phone}`,
+            `الموقع: ${formData.location}`,
+            formData.units ? `عدد الوحدات: ${formData.units}` : '',
+            formData.notes ? `ملاحظات: ${formData.notes}` : ''
+        ].filter(Boolean).join('\n');
+
+        window.open(`https://wa.me/962780719787?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+        showToast('فُتح واتساب لإرسال طلبك مباشرة إلى فريق أصولي.');
+        btn.innerHTML = originalText;
+        btn.disabled = false;
     });
 
     const inputs = document.querySelectorAll('.floating-input');
@@ -358,21 +338,21 @@ const initComparisonToggle = () => {
     if(!toggle || !content || !list) return;
     
     const featuresWithout = [
-        { title: "فحص المستأجر", desc: "مجهول الملاءة والوضع المالي" },
-        { title: "العقد القانوني", desc: "قد يكون هشاً وغير تنفيذي مباشرة" },
-        { title: "تحصيل الإيجار", desc: "ملاحقة يدوية وشخصية مرهقة" },
-        { title: "تكاليف المحاماة", desc: "من جيبك الخاص (500-2000د.أ)" },
-        { title: "متابعة الفواتير", desc: "خطر تراكم الديون دون علمك" },
-        { title: "وقتك الشهري", desc: "6-10 ساعات ملاحقة واتصالات" }
+        { title: "ملف العقار", desc: "قد يتوزع بين رسائل وملفات متعددة" },
+        { title: "الاستحقاقات", desc: "تحتاج متابعة يدوية حسب آلية المالك" },
+        { title: "سجل التواصل", desc: "قد لا يكون موحداً أو سهل الرجوع إليه" },
+        { title: "الاستثناءات", desc: "قد تتطلب وقتاً إضافياً لفهم الوقائع" },
+        { title: "التكاليف", desc: "تحتاج إلى توضيح منفصل حسب الحالة" },
+        { title: "وقتك الشهري", desc: "يزداد مع عدد العقارات وحالات التأخر" }
     ];
     
     const featuresWith = [
-        { title: "فحص المستأجر", desc: "تقرير مالي وقانوني شامل" },
-        { title: "العقد القانوني", desc: "صياغة محكمة قابلة للتنفيذ القضائي" },
-        { title: "تحصيل الإيجار", desc: "نظام متابعة آلي وبشري فعال" },
-        { title: "تكاليف المحاماة", desc: "تتحملها أصولي بالكامل" },
-        { title: "متابعة الفواتير", desc: "تسوية شهرية موثقة للخدمات" },
-        { title: "وقتك الشهري", desc: "صفر — نحن نتولى كل شيء" }
+        { title: "ملف العقار", desc: "بيانات ووثائق واستحقاقات ضمن سجل منظم" },
+        { title: "الاستحقاقات", desc: "حالة متابعة واضحة وفق نطاق الخدمة" },
+        { title: "سجل التواصل", desc: "خطوات موثقة تسهّل مراجعة الحالة" },
+        { title: "الاستثناءات", desc: "مراجعة منظمة للوقائع والخطوة التالية" },
+        { title: "التكاليف", desc: "نطاق ورسوم موضحة قبل التعاقد" },
+        { title: "وقتك الشهري", desc: "تخفيف العمل المتكرر مع بقائك صاحب القرار" }
     ];
     
     const renderList = (isWithOssoolli) => {
@@ -461,11 +441,6 @@ document.addEventListener('DOMContentLoaded', () => {
     style.innerHTML = `@keyframes spin { to { transform: rotate(360deg); } }`;
     document.head.appendChild(style);
 
-    const sdk = document.createElement('script');
-    sdk.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
-    sdk.onload = initSupabase;
-    document.head.appendChild(sdk);
-
     initThemeToggle();
     initNavbar();
     initMobileMenu();
@@ -543,12 +518,8 @@ const initInteractiveAlgorithms = () => {
     revealStagger.forEach(el => staggerObserver.observe(el));
 };
 
-// CRO Additions (Lead Capture & Sticky CTA logic)
+// Sticky CTA logic
 document.addEventListener('DOMContentLoaded', () => {
-    const ctaTriggers = document.querySelectorAll('.cta-trigger');
-    const modal = document.getElementById('leadModalOverlay');
-    const closeBtn = document.getElementById('closeModalBtn');
-    const modalSubmit = document.getElementById('modalSubmitBtn');
     const stickyCta = document.getElementById('sticky-cta');
 
     if(stickyCta) {
@@ -558,54 +529,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if(modal) {
-        ctaTriggers.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                modal.classList.add('active');
-            });
-        });
-
-        const closeModal = () => modal.classList.remove('active');
-        if(closeBtn) closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if(e.target === modal) closeModal();
-        });
-
-        if(modalSubmit) {
-            modalSubmit.addEventListener('click', async () => {
-                const name = document.getElementById('modalName').value;
-                const phone = document.getElementById('modalPhone').value;
-                
-                if(name && phone) {
-                    const originalText = modalSubmit.innerHTML;
-                    modalSubmit.innerHTML = 'جاري الحفظ...';
-                    modalSubmit.disabled = true;
-
-                    const formData = { name, phone, source: 'lead_modal' };
-
-                    try {
-                        if(supabase) {
-                            await supabase.from('leads').insert([formData]);
-                        } else {
-                            console.log("Mock lead saved (modal):", formData);
-                        }
-                        closeModal();
-                        showToast('تم استلام طلبك! وسنتواصل معك لتأكيد الاستشارة.', 'success');
-                        document.getElementById('modalName').value = '';
-                        document.getElementById('modalPhone').value = '';
-                    } catch (e) {
-                        showToast('خطأ فني بسيط، يرجى المحاولة لاحقاً', 'error');
-                    } finally {
-                        modalSubmit.innerHTML = originalText;
-                        modalSubmit.disabled = false;
-                    }
-                } else {
-                    const group = document.getElementById('modalPhone').parentElement;
-                    group.classList.add('has-error');
-                    setTimeout(() => group.classList.remove('has-error'), 3000);
-                }
-            });
-        }
-    }
 });
